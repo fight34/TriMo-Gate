@@ -1,0 +1,12 @@
+# Install a compatible torch / torch-geometric / torch-scatter combination first.
+# Select the torch-scatter wheel for the exact PyTorch and CPU/CUDA build.
+# These are dependency declarations, not a recovered historical environment lock.
+numpy
+pandas
+openpyxl
+matplotlib
+scikit-learn
+rdkit
+SmilesPE==0.0.3
+# Only required by benchmark/run.py --bayes-opt:
+optuna>=3.0

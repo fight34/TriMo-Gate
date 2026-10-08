@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "release_date": "2026-10-08",
+  "unit_test_count": 5,
+  "checks": {
+    "compile_all_geometry_python": "PASS",
+    "twenty_target_unit_and_protocols": "PASS",
+    "all_twenty_default_six_job_dry_runs": "PASS",
+    "source_hashes": "PASS",
+    "fixed_split_counts_disjointness_original_order": "PASS",
+    "reject_existing_unit_conflict_before_creating_output": "PASS",
+    "generation_cli_help": "PASS",
+    "source_identity_graph_point_verification_QM8_QM9_three_each": "PASS",
+    "per_molecule_generation_parity_with_original_QM8_QM9_three_each": "PASS: bitwise equal point arrays",
+    "prepare_runtime_real_alpha_cache_and_hardlinks": "PASS",
+    "qm9_mu_real_matched_cache_one_step_cpu_training": "PASS",
+    "completed_checkpoint_resume_unchanged": "PASS",
+    "finalize_reload_and_diagnostic_test_evaluation": "PASS"
+  },
+  "diagnostic_training": {
+    "seed": 42,
+    "subset": 64,
+    "split_sizes": {"train": 54, "val": 6, "test": 4},
+    "epochs": 1,
+    "max_steps": 1,
+    "batch_size": 4,
+    "hidden_dim": 16,
+    "smiles_layers": 1,
+    "graph_layers": 1,
+    "point_dim": 32,
+    "device": "cpu",
+    "formal_training_started": false
+  },
+  "not_verified": [
+    "No full-dataset conformer regeneration",
+    "No complete GPU retraining",
+    "Local deployment snapshots are not claimed to prove all final remote runtime hashes"
+  ],
+  "publication_exclusion": "Temporary diagnostic directories, generated weights and linked caches are not release artifacts."
+}

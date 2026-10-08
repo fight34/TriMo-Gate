@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Please cite the associated manuscript and the original QM9/QM8 datasets when using this research code."
+title: "TriMo-Gate: Multimodal Fusion and Sensitivity to Input Geometry in Quantum-Chemical Property Prediction"
+type: software
+authors:
+  - family-names: Yang
+    given-names: Mengxin
+abstract: "SMILES, graph and point-cloud learning with fusion ablations, cross-modal contrastive regularization and controlled geometry-quality experiments on QM9 and QM8."
+keywords:
+  - molecular property prediction
+  - multimodal learning
+  - QM9
+  - QM8

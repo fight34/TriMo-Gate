@@ -1,0 +1,45 @@
+{
+  "files": [
+    {
+      "sha256": "7c5492e3435270be2a81d29579610af3c3be56db9d07d4b2991da83e50e7777e",
+      "source": "TriMo-Gate/Model_1.py",
+      "bytes": 29870
+    },
+    {
+      "sha256": "c6408c315412a9193686bced265ec57d8ab75c184164aaf06ee041958e4c1073",
+      "source": "TriMo-Gate/Graph_dataloader.py",
+      "bytes": 14095
+    },
+    {
+      "sha256": "7f5b754f14b584cc6f180787bc25cf8879008d71242a432bf9a243a7f4918752",
+      "source": "TriMo-Gate/SMILES_dataloader_atom.py",
+      "bytes": 1427
+    },
+    {
+      "sha256": "3706e4247451ee194e8aba0f115a0dc2921edd56988e21a97b1dbac24096963f",
+      "source": "TriMo-Gate/QM8_xyz_to_3d_coords.py",
+      "bytes": 5814
+    },
+    {
+      "sha256": "8236a48d36206958a40e8facb27ab2b6d263c990cdbaa63d80686fd56905d42a",
+      "source": "TriMo-Gate/QM9_xyz_to_3d_coords.py",
+      "bytes": 3969
+    },
+    {
+      "sha256": "88784711fff907da1e76543a64821b267b170da5bff23629f7d642a0fcb3079e",
+      "source": "TriMo-Gate/random_3_seeds.py",
+      "bytes": 26500
+    },
+    {
+      "sha256": "d5af2189207b1b23655cefb1486afe179b22f62926e8e795681b7487f329a861",
+      "source": "TriMo-Gate/random_3_seeds_cmcr_with_gate_export.py",
+      "bytes": 45512
+    },
+    {
+      "sha256": "fa49de8546e4325701aa7d6909b19bae8354c97f20d6a3d47cd6e60051b894e2",
+      "source": "TriMo-Gate/Train_and_evaluation.py",
+      "bytes": 41849
+    }
+  ],
+  "note": "Hashes of the provided source files before publication adaptations; not proof of historical run provenance."
+}

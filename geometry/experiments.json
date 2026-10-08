@@ -1,0 +1,542 @@
+{
+  "qm9_mu": {
+    "dataset": "QM9",
+    "target": "dipole_moment",
+    "unit": "Debye",
+    "source_status": "backed-up runtime",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm9_mu/data.py",
+      "train_fusion.py": "experiments/qm9_mu/train_fusion.py",
+      "run_queue.py": "experiments/qm9_mu/run_queue.py",
+      "experiment_protocol.json": "experiments/qm9_mu/experiment_protocol.json",
+      "cross_infer.py": "experiments/qm9_mu/cross_infer.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm9_mu/metadata_dft.json",
+      "mmff": "experiments/qm9_mu/metadata_mmff.json"
+    },
+    "split": "splits/qm9_matched.json",
+    "evaluation_backend": "cpu",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm9_geometry_v1/final_backup/remote_backup_manifest.json",
+        "sha256": "572756a4b56757c0ee9c65e490e7b48b38ec61000d51be6f3edf5dfb306a408d",
+        "kind": "remote_backup_manifest.json"
+      }
+    ]
+  },
+  "qm8_e1cc2": {
+    "dataset": "QM8",
+    "target": "E1-CC2",
+    "unit": "hartree",
+    "source_status": "backed-up runtime",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_e1cc2/data.py",
+      "train_fusion.py": "experiments/qm8_e1cc2/train_fusion.py",
+      "run_queue.py": "experiments/qm8_e1cc2/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_e1cc2/experiment_protocol.json",
+      "cross_infer.py": "experiments/qm8_e1cc2/cross_infer.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_e1cc2/metadata_dft.json",
+      "mmff": "experiments/qm8_e1cc2/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cpu",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_geometry_D_v1/final_backup/remote_backup_manifest.json",
+        "sha256": "e53227934c75eb5810e0ad5a7feb978cf3143c5aa18cc92ee6d75b130b32645f",
+        "kind": "remote_backup_manifest.json"
+      }
+    ]
+  },
+  "qm9_alpha": {
+    "dataset": "QM9",
+    "target": "isotropic_polarizability",
+    "unit": "a0^3",
+    "source_status": "backed-up runtime",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm9_alpha/data.py",
+      "train_fusion.py": "experiments/qm9_alpha/train_fusion.py",
+      "run_queue.py": "experiments/qm9_alpha/run_queue.py",
+      "experiment_protocol.json": "experiments/qm9_alpha/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm9_alpha/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm9_alpha/metadata_dft.json",
+      "mmff": "experiments/qm9_alpha/metadata_mmff.json"
+    },
+    "split": "splits/qm9_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm9_alpha_geometry_v1/final_backup/source_manifest.json",
+        "sha256": "e2e0221aac614994a50ce2dbb5c2f3b56c608d282acbcd982b936b92efe23ff2",
+        "kind": "source_manifest.json"
+      }
+    ]
+  },
+  "qm9_homo": {
+    "dataset": "QM9",
+    "target": "energy_HOMO",
+    "unit": "hartree",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm9_homo/data.py",
+      "train_fusion.py": "experiments/qm9_homo/train_fusion.py",
+      "run_queue.py": "experiments/qm9_homo/run_queue.py",
+      "experiment_protocol.json": "experiments/qm9_homo/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm9_homo/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm9_homo/metadata_dft.json",
+      "mmff": "experiments/qm9_homo/metadata_mmff.json"
+    },
+    "split": "splits/qm9_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm9_homo_geometry_v1/deploy/source_manifest.json",
+        "sha256": "13e9ead403d463d6c5970dc3345b94743936d46e835311d48586a2d4ee0d4df9",
+        "kind": "source_manifest.json"
+      }
+    ]
+  },
+  "qm9_gap": {
+    "dataset": "QM9",
+    "target": "gap",
+    "unit": "hartree",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm9_gap/data.py",
+      "train_fusion.py": "experiments/qm9_gap/train_fusion.py",
+      "run_queue.py": "experiments/qm9_gap/run_queue.py",
+      "experiment_protocol.json": "experiments/qm9_gap/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm9_gap/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm9_gap/metadata_dft.json",
+      "mmff": "experiments/qm9_gap/metadata_mmff.json"
+    },
+    "split": "splits/qm9_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm9_gap_geometry_v1/deploy/source_manifest.json",
+        "sha256": "5308de348cbad7372c64e816fca47210a7de92912e721b58d7bee215cd34f676",
+        "kind": "source_manifest.json"
+      }
+    ]
+  },
+  "qm9_r2": {
+    "dataset": "QM9",
+    "target": "electronic_spatial_extent",
+    "unit": "a0^2",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm9_r2/data.py",
+      "train_fusion.py": "experiments/qm9_r2/train_fusion.py",
+      "run_queue.py": "experiments/qm9_r2/run_queue.py",
+      "experiment_protocol.json": "experiments/qm9_r2/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm9_r2/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm9_r2/metadata_dft.json",
+      "mmff": "experiments/qm9_r2/metadata_mmff.json"
+    },
+    "split": "splits/qm9_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm9_r2_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "3c352a0e36df6970af6ebfb8752e98e7b7dd1c75e8ee38bb51d457a03490bb64",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm9_zpve": {
+    "dataset": "QM9",
+    "target": "zero_point_vibrational_energy",
+    "unit": "hartree",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm9_zpve/data.py",
+      "train_fusion.py": "experiments/qm9_zpve/train_fusion.py",
+      "run_queue.py": "experiments/qm9_zpve/run_queue.py",
+      "experiment_protocol.json": "experiments/qm9_zpve/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm9_zpve/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm9_zpve/metadata_dft.json",
+      "mmff": "experiments/qm9_zpve/metadata_mmff.json"
+    },
+    "split": "splits/qm9_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm9_zpve_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "e09884e56b0849feda0499f6c03727ff6a63256c13dd40b8b9135e087abb016f",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm9_u0atom": {
+    "dataset": "QM9",
+    "target": "internal_energy_0K_atom_kcal_mol",
+    "unit": "kcal mol^-1",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm9_u0atom/data.py",
+      "train_fusion.py": "experiments/qm9_u0atom/train_fusion.py",
+      "run_queue.py": "experiments/qm9_u0atom/run_queue.py",
+      "experiment_protocol.json": "experiments/qm9_u0atom/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm9_u0atom/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm9_u0atom/metadata_dft.json",
+      "mmff": "experiments/qm9_u0atom/metadata_mmff.json"
+    },
+    "split": "splits/qm9_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm9_u0atom_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "f9747be4d7689f0f6eb5161c65194815e9529350478def3f79d25f2db9661172",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm9_cv": {
+    "dataset": "QM9",
+    "target": "heat_capacity_298K",
+    "unit": "cal mol^-1 K^-1",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm9_cv/data.py",
+      "train_fusion.py": "experiments/qm9_cv/train_fusion.py",
+      "run_queue.py": "experiments/qm9_cv/run_queue.py",
+      "experiment_protocol.json": "experiments/qm9_cv/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm9_cv/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm9_cv/metadata_dft.json",
+      "mmff": "experiments/qm9_cv/metadata_mmff.json"
+    },
+    "split": "splits/qm9_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm9_cv_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "1221c4155917be26beb93f3142807949dc05543c154e2361120fda70de2d9772",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_e2cc2": {
+    "dataset": "QM8",
+    "target": "E2-CC2",
+    "unit": "hartree",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_e2cc2/data.py",
+      "train_fusion.py": "experiments/qm8_e2cc2/train_fusion.py",
+      "run_queue.py": "experiments/qm8_e2cc2/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_e2cc2/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_e2cc2/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_e2cc2/metadata_dft.json",
+      "mmff": "experiments/qm8_e2cc2/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_e2cc2_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "12ac57f63b7e9b4f3dd3d0eee3e02348dd1fcad24bb414334a3aa623bb8e7654",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_f1cc2": {
+    "dataset": "QM8",
+    "target": "f1-CC2",
+    "unit": "dimensionless",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_f1cc2/data.py",
+      "train_fusion.py": "experiments/qm8_f1cc2/train_fusion.py",
+      "run_queue.py": "experiments/qm8_f1cc2/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_f1cc2/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_f1cc2/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_f1cc2/metadata_dft.json",
+      "mmff": "experiments/qm8_f1cc2/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_f1cc2_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "496708038e6d850e8d1304a277857271763985f94b24e1464843d1e6327ce48c",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_f2cc2": {
+    "dataset": "QM8",
+    "target": "f2-CC2",
+    "unit": "dimensionless",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_f2cc2/data.py",
+      "train_fusion.py": "experiments/qm8_f2cc2/train_fusion.py",
+      "run_queue.py": "experiments/qm8_f2cc2/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_f2cc2/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_f2cc2/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_f2cc2/metadata_dft.json",
+      "mmff": "experiments/qm8_f2cc2/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_f2cc2_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "7a0de99dc2337040f1b64b9f095d7d09f97abb3b7b46a1e161c2db6725b9552f",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_e1pbe0": {
+    "dataset": "QM8",
+    "target": "E1-PBE0",
+    "unit": "hartree",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_e1pbe0/data.py",
+      "train_fusion.py": "experiments/qm8_e1pbe0/train_fusion.py",
+      "run_queue.py": "experiments/qm8_e1pbe0/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_e1pbe0/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_e1pbe0/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_e1pbe0/metadata_dft.json",
+      "mmff": "experiments/qm8_e1pbe0/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_e1pbe0_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "573c32a3880ab1de0ad4f82dd65e8c7ddafb7ad8ad1a62ba1fd8c154934c0fc6",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_e2pbe0": {
+    "dataset": "QM8",
+    "target": "E2-PBE0",
+    "unit": "hartree",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_e2pbe0/data.py",
+      "train_fusion.py": "experiments/qm8_e2pbe0/train_fusion.py",
+      "run_queue.py": "experiments/qm8_e2pbe0/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_e2pbe0/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_e2pbe0/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_e2pbe0/metadata_dft.json",
+      "mmff": "experiments/qm8_e2pbe0/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_e2pbe0_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "b2169daf84fbecc8121199becd457919351b91946743b118022e9f742811db69",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_f1pbe0": {
+    "dataset": "QM8",
+    "target": "f1-PBE0",
+    "unit": "dimensionless",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_f1pbe0/data.py",
+      "train_fusion.py": "experiments/qm8_f1pbe0/train_fusion.py",
+      "run_queue.py": "experiments/qm8_f1pbe0/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_f1pbe0/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_f1pbe0/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_f1pbe0/metadata_dft.json",
+      "mmff": "experiments/qm8_f1pbe0/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_f1pbe0_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "ddcbe6f0a77ba21ea1ef859b93e8805e0dcb435bc647a08a63953d53252af63b",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_f2pbe0": {
+    "dataset": "QM8",
+    "target": "f2-PBE0",
+    "unit": "dimensionless",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_f2pbe0/data.py",
+      "train_fusion.py": "experiments/qm8_f2pbe0/train_fusion.py",
+      "run_queue.py": "experiments/qm8_f2pbe0/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_f2pbe0/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_f2pbe0/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_f2pbe0/metadata_dft.json",
+      "mmff": "experiments/qm8_f2pbe0/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_f2pbe0_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "5ff82b54cb4fb3b4686e52c67fde8f581a6b04a96e2dba452253ebcf95a5af3f",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_e1cam": {
+    "dataset": "QM8",
+    "target": "E1-CAM",
+    "unit": "hartree",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_e1cam/data.py",
+      "train_fusion.py": "experiments/qm8_e1cam/train_fusion.py",
+      "run_queue.py": "experiments/qm8_e1cam/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_e1cam/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_e1cam/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_e1cam/metadata_dft.json",
+      "mmff": "experiments/qm8_e1cam/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_e1cam_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "890b4a6183078099ca193d9c3e404d907b88710027218c4002b3bcb11ae19ddd",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_e2cam": {
+    "dataset": "QM8",
+    "target": "E2-CAM",
+    "unit": "hartree",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_e2cam/data.py",
+      "train_fusion.py": "experiments/qm8_e2cam/train_fusion.py",
+      "run_queue.py": "experiments/qm8_e2cam/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_e2cam/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_e2cam/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_e2cam/metadata_dft.json",
+      "mmff": "experiments/qm8_e2cam/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_e2cam_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "9f2a270b3feacd3a4c26bdf52fdf06023e2ebbc34d1244c7053880e933c02a5a",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_f1cam": {
+    "dataset": "QM8",
+    "target": "f1-CAM",
+    "unit": "dimensionless",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_f1cam/data.py",
+      "train_fusion.py": "experiments/qm8_f1cam/train_fusion.py",
+      "run_queue.py": "experiments/qm8_f1cam/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_f1cam/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_f1cam/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_f1cam/metadata_dft.json",
+      "mmff": "experiments/qm8_f1cam/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_f1cam_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "81a4b439a1c6fa300bb166a99e666e42a92e902e08578cc8443cd4fb61e8c255",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  },
+  "qm8_f2cam": {
+    "dataset": "QM8",
+    "target": "f2-CAM",
+    "unit": "dimensionless",
+    "source_status": "local deployment/preparation snapshot",
+    "files": {
+      "Model.py": "../fusion/Model.py",
+      "data.py": "experiments/qm8_f2cam/data.py",
+      "train_fusion.py": "experiments/qm8_f2cam/train_fusion.py",
+      "run_queue.py": "experiments/qm8_f2cam/run_queue.py",
+      "experiment_protocol.json": "experiments/qm8_f2cam/experiment_protocol.json",
+      "evaluate_abcd.py": "experiments/qm8_f2cam/evaluate_abcd.py"
+    },
+    "metadata": {
+      "dft": "experiments/qm8_f2cam/metadata_dft.json",
+      "mmff": "experiments/qm8_f2cam/metadata_mmff.json"
+    },
+    "split": "splits/qm8_matched.json",
+    "evaluation_backend": "cuda:0",
+    "original_manifest_evidence": [
+      {
+        "file": "work/qm8_f2cam_geometry_v1/deploy/preparation_manifest.json",
+        "sha256": "b3d5694589790935ddce0093076abaff895b1952d00229b0b548811d03b8c09e",
+        "kind": "preparation_manifest.json"
+      }
+    ]
+  }
+}

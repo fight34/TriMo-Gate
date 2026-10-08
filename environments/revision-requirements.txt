@@ -1,0 +1,8 @@
+# Recorded revision-training stack: Python 3.12.3, CUDA 12.1.
+# Install torch and torch-scatter wheels matching the chosen CUDA/CPU backend.
+# These package pins do not imply bitwise determinism of CUDA scatter kernels.
+numpy==1.26.4
+torch==2.3.0
+torch-geometric==2.5.3
+torch-scatter==2.1.2
+rdkit==2024.3.5

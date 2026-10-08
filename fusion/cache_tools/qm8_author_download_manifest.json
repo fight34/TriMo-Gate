@@ -1,0 +1,16 @@
+[
+  {
+    "name": "XYZ_B3LYP_631G2dfp.xyz",
+    "url": "https://raw.githubusercontent.com/raghurama123/ExcitedStatesQM8/main/22k_electronic_spectra_TDDFT_CC2/XYZ_B3LYP_631G2dfp.xyz",
+    "size": 18134363,
+    "git_blob_sha1": "edcd8b2ff7dc9f9a91fa6cb6d83151a666ebc4c2",
+    "sha256": "01c20f132d6215a856955df01bf1fd65a646cd531fbda190b0a21e5c85c4c39e"
+  },
+  {
+    "name": "gdb8_22k_elec_spec.txt",
+    "url": "https://raw.githubusercontent.com/raghurama123/ExcitedStatesQM8/main/22k_electronic_spectra_TDDFT_CC2/gdb8_22k_elec_spec.txt",
+    "size": 5448336,
+    "git_blob_sha1": "35efb5409431d56fc028e3428ed12c3f551aaf2c",
+    "sha256": "9830940d7bf02f92f1b0ae7e00851652b08fdd81c31b0f61950e648e59fc2ea0"
+  }
+]

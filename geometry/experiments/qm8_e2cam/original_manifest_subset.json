@@ -1,0 +1,45 @@
+{
+  "original_manifest": {
+    "file": "work/qm8_e2cam_geometry_v1/deploy/preparation_manifest.json",
+    "sha256": "9f2a270b3feacd3a4c26bdf52fdf06023e2ebbc34d1244c7053880e933c02a5a",
+    "kind": "preparation_manifest.json"
+  },
+  "included_entries": {
+    "data.py": {
+      "bytes": 7900,
+      "sha256": "aa5cc1b574001650f9717ea26a9c3768e655c712b05d2a7aa38ee1d34113a53e"
+    },
+    "evaluate_abcd.py": {
+      "bytes": 23640,
+      "sha256": "ad1ead332c8f8767d303044b8a424220fd35e3ec6fb9e90af983f07a0d7e5553"
+    },
+    "experiment_protocol.json": {
+      "bytes": 5564,
+      "sha256": "b656a81b7bf90fb5ac70f6b881b6e413c747bb5c9fb0965886ae25a7af17549a"
+    },
+    "Model.py": {
+      "bytes": 35024,
+      "sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78"
+    },
+    "run_queue.py": {
+      "bytes": 9832,
+      "sha256": "d6ce92c72b32c150219436e99c5e59a1d6f27109b1a438b57a8b65121c03c900"
+    },
+    "run_real_cache_smoke.py": {
+      "bytes": 10162,
+      "sha256": "6c0201a20036f1c315a905a0208f8a081e70eccdbf32a26d3405c4040215bac8"
+    },
+    "test_evaluate_abcd.py": {
+      "bytes": 6864,
+      "sha256": "0284c27b6dfb43817b47b3047194dad826f69cf03180094fbeb3d65daebc7a51"
+    },
+    "test_geometry_protocol.py": {
+      "bytes": 9227,
+      "sha256": "688cef17f9d09b70a023d3a478d0fe9d1cc2bf81a3a1d8aabe1e46480dac3be1"
+    },
+    "train_fusion.py": {
+      "bytes": 44956,
+      "sha256": "46924ef2e901704fcaaf2e27b3b355ba5b4a9f03f26c789a2b60b64a40acc1be"
+    }
+  }
+}

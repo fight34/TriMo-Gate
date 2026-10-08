@@ -1,0 +1,1089 @@
+{
+  "qm9_mu": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm9_geometry_v1/final_backup/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm9_geometry_v1/final_backup/data.py",
+      "original_sha256": "23edfd0b88f95e44c710b9205e067662ce9f5c8f81b7b8f76784ee9405f6cbb3",
+      "release_path": "experiments/qm9_mu/data.py",
+      "release_sha256": "23edfd0b88f95e44c710b9205e067662ce9f5c8f81b7b8f76784ee9405f6cbb3",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm9_geometry_v1/final_backup/train_fusion.py",
+      "original_sha256": "61b500b471ed851357111dc3e696690bdfa1082bcc7871bdba50e307af58173b",
+      "release_path": "experiments/qm9_mu/train_fusion.py",
+      "release_sha256": "61b500b471ed851357111dc3e696690bdfa1082bcc7871bdba50e307af58173b",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm9_geometry_v1/final_backup/run_queue.py",
+      "original_sha256": "844ffadf90d562ccda677895a4116d19f2a20d0265726df3c911d6b4521ea165",
+      "release_path": "experiments/qm9_mu/run_queue.py",
+      "release_sha256": "844ffadf90d562ccda677895a4116d19f2a20d0265726df3c911d6b4521ea165",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm9_geometry_v1/final_backup/experiment_protocol.json",
+      "original_sha256": "676f38321971c166dc232c2ea4de65d0a086f361e2f455a9aa5b6cb0777aa66c",
+      "release_path": "experiments/qm9_mu/experiment_protocol.json",
+      "release_sha256": "676f38321971c166dc232c2ea4de65d0a086f361e2f455a9aa5b6cb0777aa66c",
+      "changes": []
+    },
+    {
+      "runtime_name": "cross_infer.py",
+      "original_path": "work/qm9_geometry_v1/final_backup/cross_infer.py",
+      "original_sha256": "5584dd1cfec079f716e60d6d189eea13c4f15f149e286491bb065c6b70ea972a",
+      "release_path": "experiments/qm9_mu/cross_infer.py",
+      "release_sha256": "5584dd1cfec079f716e60d6d189eea13c4f15f149e286491bb065c6b70ea972a",
+      "changes": []
+    }
+  ],
+  "qm8_e1cc2": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_geometry_D_v1/final_backup/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_geometry_D_v1/final_backup/data.py",
+      "original_sha256": "7c1505e69eb1062d926c7a4f54d5f2e9b9fc55a0c99d0fbc6e1c8bd0489b2f61",
+      "release_path": "experiments/qm8_e1cc2/data.py",
+      "release_sha256": "7c1505e69eb1062d926c7a4f54d5f2e9b9fc55a0c99d0fbc6e1c8bd0489b2f61",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_geometry_D_v1/final_backup/train_fusion.py",
+      "original_sha256": "625c35fc5f261de7abf7e34617d3d1e706f6c77d4d18fc95c0daed46639f9a2c",
+      "release_path": "experiments/qm8_e1cc2/train_fusion.py",
+      "release_sha256": "625c35fc5f261de7abf7e34617d3d1e706f6c77d4d18fc95c0daed46639f9a2c",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_geometry_D_v1/final_backup/run_queue.py",
+      "original_sha256": "f0c86736ee146291182c1c4da80774de3f3e6e1d4322f8a94af26401441366a7",
+      "release_path": "experiments/qm8_e1cc2/run_queue.py",
+      "release_sha256": "f0c86736ee146291182c1c4da80774de3f3e6e1d4322f8a94af26401441366a7",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_geometry_D_v1/final_backup/experiment_protocol.json",
+      "original_sha256": "ff530787f806c1f2c79fccdbc90c5b7ead36f3ff8b3b37642ca501c959d38eae",
+      "release_path": "experiments/qm8_e1cc2/experiment_protocol.json",
+      "release_sha256": "08251bcd1b47fdcafe7ccc3b131318c7f8a5fb3b56d06e9b9def5c88ea709375",
+      "changes": [
+        "Replace author-user absolute diagnostic paths with AUTHOR_WORKSPACE-relative descriptions; all scientific settings unchanged."
+      ]
+    },
+    {
+      "runtime_name": "cross_infer.py",
+      "original_path": "work/qm8_geometry_D_v1/final_backup/cross_infer.py",
+      "original_sha256": "64126f412b02301bcf0935b45a5f88635fee55f83849a9a5bc88710e8464b593",
+      "release_path": "experiments/qm8_e1cc2/cross_infer.py",
+      "release_sha256": "64126f412b02301bcf0935b45a5f88635fee55f83849a9a5bc88710e8464b593",
+      "changes": []
+    }
+  ],
+  "qm9_alpha": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm9_alpha_geometry_v1/final_backup/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm9_alpha_geometry_v1/final_backup/data.py",
+      "original_sha256": "8f2f1484d1ff49f0db49b5d5151555c7ddeb16f915e89b95013a11af4dad6578",
+      "release_path": "experiments/qm9_alpha/data.py",
+      "release_sha256": "8f2f1484d1ff49f0db49b5d5151555c7ddeb16f915e89b95013a11af4dad6578",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm9_alpha_geometry_v1/final_backup/train_fusion.py",
+      "original_sha256": "b6ae315be89de4cf7a439ad57c26cd5ffed69186c0c82ea28facef9106cdaac8",
+      "release_path": "experiments/qm9_alpha/train_fusion.py",
+      "release_sha256": "b6ae315be89de4cf7a439ad57c26cd5ffed69186c0c82ea28facef9106cdaac8",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm9_alpha_geometry_v1/final_backup/run_queue.py",
+      "original_sha256": "edbf54388677bf97b673e9331e094768eceab3111f589fa7ae4ba48c2222cbec",
+      "release_path": "experiments/qm9_alpha/run_queue.py",
+      "release_sha256": "edbf54388677bf97b673e9331e094768eceab3111f589fa7ae4ba48c2222cbec",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm9_alpha_geometry_v1/final_backup/experiment_protocol.json",
+      "original_sha256": "45bb14366f40bca2d2b994464a6de28280b50280d4526ba86e9fa54b47d6b711",
+      "release_path": "experiments/qm9_alpha/experiment_protocol.json",
+      "release_sha256": "45bb14366f40bca2d2b994464a6de28280b50280d4526ba86e9fa54b47d6b711",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm9_alpha_geometry_v1/final_backup/evaluate_abcd.py",
+      "original_sha256": "a97d58b9445c1efccfe1ae7cc7c7df97e88cd688c8ff35f0cb79e80a0756c22b",
+      "release_path": "experiments/qm9_alpha/evaluate_abcd.py",
+      "release_sha256": "a97d58b9445c1efccfe1ae7cc7c7df97e88cd688c8ff35f0cb79e80a0756c22b",
+      "changes": []
+    }
+  ],
+  "qm9_homo": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm9_homo_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm9_homo_geometry_v1/deploy/data.py",
+      "original_sha256": "d823ad431713a8318972073bee4920f8fe24e635d7ea37bf626d511517fe21c4",
+      "release_path": "experiments/qm9_homo/data.py",
+      "release_sha256": "d823ad431713a8318972073bee4920f8fe24e635d7ea37bf626d511517fe21c4",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm9_homo_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "57b4714849699d87cdc9879f3341cd7ac7ab21dca759e5e6333b330309b4e69f",
+      "release_path": "experiments/qm9_homo/train_fusion.py",
+      "release_sha256": "57b4714849699d87cdc9879f3341cd7ac7ab21dca759e5e6333b330309b4e69f",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm9_homo_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "b570dae516a0ba68b58325f6188b48967a46b42bfd8d9e48fcde77a53b8a4ba0",
+      "release_path": "experiments/qm9_homo/run_queue.py",
+      "release_sha256": "b570dae516a0ba68b58325f6188b48967a46b42bfd8d9e48fcde77a53b8a4ba0",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm9_homo_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "6cdf5193f2795e0ac78012cdf2b8e28c770d6a16ee2538f60ba49a1ebf83fca1",
+      "release_path": "experiments/qm9_homo/experiment_protocol.json",
+      "release_sha256": "6cdf5193f2795e0ac78012cdf2b8e28c770d6a16ee2538f60ba49a1ebf83fca1",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm9_homo_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "c6914ac12df66c27cb40ecb3887f1e0d2cd2c3d4677b69c3dfc9f70f1e909e82",
+      "release_path": "experiments/qm9_homo/evaluate_abcd.py",
+      "release_sha256": "c6914ac12df66c27cb40ecb3887f1e0d2cd2c3d4677b69c3dfc9f70f1e909e82",
+      "changes": []
+    }
+  ],
+  "qm9_gap": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm9_gap_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm9_gap_geometry_v1/deploy/data.py",
+      "original_sha256": "36bb63cad1a48c9ce7cdba1145a4ab991845cb39fa632b68a123b44db0db9108",
+      "release_path": "experiments/qm9_gap/data.py",
+      "release_sha256": "36bb63cad1a48c9ce7cdba1145a4ab991845cb39fa632b68a123b44db0db9108",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm9_gap_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "0cf1130dd66f73dc196fb825c8feac9c50cfdd8ad784ae440b13ce2ea5c21ee9",
+      "release_path": "experiments/qm9_gap/train_fusion.py",
+      "release_sha256": "0cf1130dd66f73dc196fb825c8feac9c50cfdd8ad784ae440b13ce2ea5c21ee9",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm9_gap_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "76509b57f3e10b23a863ef7e2df92dc11d02fc19bcad35539b0e4fb2996d2a7a",
+      "release_path": "experiments/qm9_gap/run_queue.py",
+      "release_sha256": "76509b57f3e10b23a863ef7e2df92dc11d02fc19bcad35539b0e4fb2996d2a7a",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm9_gap_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "e294e4317202028985d988654c6722f974add9c2554f4213873804e73778e96d",
+      "release_path": "experiments/qm9_gap/experiment_protocol.json",
+      "release_sha256": "e294e4317202028985d988654c6722f974add9c2554f4213873804e73778e96d",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm9_gap_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "b56189cbf46c9e3afbb1d587281afee7e7b90ec69fe3c35a5df94464c8ca11d2",
+      "release_path": "experiments/qm9_gap/evaluate_abcd.py",
+      "release_sha256": "b56189cbf46c9e3afbb1d587281afee7e7b90ec69fe3c35a5df94464c8ca11d2",
+      "changes": []
+    }
+  ],
+  "qm9_r2": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm9_r2_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm9_r2_geometry_v1/deploy/data.py",
+      "original_sha256": "a0563ee4ac0213badbbd9e732220bc142cb74927aa6223d1fde7f5afd9af62a5",
+      "release_path": "experiments/qm9_r2/data.py",
+      "release_sha256": "a0563ee4ac0213badbbd9e732220bc142cb74927aa6223d1fde7f5afd9af62a5",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm9_r2_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "84b1d49c530fffb02cecaf15f48a3f3af6c0e9885e20e24e1b6e9cb7e39cddff",
+      "release_path": "experiments/qm9_r2/train_fusion.py",
+      "release_sha256": "84b1d49c530fffb02cecaf15f48a3f3af6c0e9885e20e24e1b6e9cb7e39cddff",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm9_r2_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "38c5fb952f99c96207fff23ae8848172e6d652669c71a177f1900dc044586cf2",
+      "release_path": "experiments/qm9_r2/run_queue.py",
+      "release_sha256": "38c5fb952f99c96207fff23ae8848172e6d652669c71a177f1900dc044586cf2",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm9_r2_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "b9d8e572818a247b883aea127e8be9a490f09e4b471636a2d1b6e564b5fa96d6",
+      "release_path": "experiments/qm9_r2/experiment_protocol.json",
+      "release_sha256": "b9d8e572818a247b883aea127e8be9a490f09e4b471636a2d1b6e564b5fa96d6",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm9_r2_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "0645cc289fc5cf38517b63c1f0e2eb02407c34cb3a175003d813c8c83af76bf5",
+      "release_path": "experiments/qm9_r2/evaluate_abcd.py",
+      "release_sha256": "0645cc289fc5cf38517b63c1f0e2eb02407c34cb3a175003d813c8c83af76bf5",
+      "changes": []
+    }
+  ],
+  "qm9_zpve": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm9_zpve_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm9_zpve_geometry_v1/deploy/data.py",
+      "original_sha256": "d32162bcaf78ed6923b334c9383ee8082af2835a0822d46be2466029bbba7853",
+      "release_path": "experiments/qm9_zpve/data.py",
+      "release_sha256": "d32162bcaf78ed6923b334c9383ee8082af2835a0822d46be2466029bbba7853",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm9_zpve_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "62029247edbfc1fc97cfb9c95db4c4c2d0a545247f081193faeed214d5e3a467",
+      "release_path": "experiments/qm9_zpve/train_fusion.py",
+      "release_sha256": "62029247edbfc1fc97cfb9c95db4c4c2d0a545247f081193faeed214d5e3a467",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm9_zpve_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "823d938b288a354f745e75624b29d55fea11754f96b0df32760d606e1faa5cee",
+      "release_path": "experiments/qm9_zpve/run_queue.py",
+      "release_sha256": "823d938b288a354f745e75624b29d55fea11754f96b0df32760d606e1faa5cee",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm9_zpve_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "c9a355adae65bb9e120ee1bd029d87073d30b80232ff116c2f55b405a746f734",
+      "release_path": "experiments/qm9_zpve/experiment_protocol.json",
+      "release_sha256": "c9a355adae65bb9e120ee1bd029d87073d30b80232ff116c2f55b405a746f734",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm9_zpve_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "086b6e81c4a94fbd36744c342e121a557d52a4ed00b2300c3131dd0b10d7c6ea",
+      "release_path": "experiments/qm9_zpve/evaluate_abcd.py",
+      "release_sha256": "086b6e81c4a94fbd36744c342e121a557d52a4ed00b2300c3131dd0b10d7c6ea",
+      "changes": []
+    }
+  ],
+  "qm9_u0atom": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm9_u0atom_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm9_u0atom_geometry_v1/deploy/data.py",
+      "original_sha256": "10505bfba0ec33c69c49ee9ba9b2b908040a79c0b390dc5e685aa92867405d08",
+      "release_path": "experiments/qm9_u0atom/data.py",
+      "release_sha256": "10505bfba0ec33c69c49ee9ba9b2b908040a79c0b390dc5e685aa92867405d08",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm9_u0atom_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "75b2a7dc65a59933720992b771ff470c01109d8500540c8ab228214047453ef9",
+      "release_path": "experiments/qm9_u0atom/train_fusion.py",
+      "release_sha256": "75b2a7dc65a59933720992b771ff470c01109d8500540c8ab228214047453ef9",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm9_u0atom_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "fe3d5e48c69cafa2ad36f10a81ae62e7a411d9b0e956421918f75e9ef78b1b68",
+      "release_path": "experiments/qm9_u0atom/run_queue.py",
+      "release_sha256": "fe3d5e48c69cafa2ad36f10a81ae62e7a411d9b0e956421918f75e9ef78b1b68",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm9_u0atom_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "96ba19646c119708f1d7f92a5b4fdb47647958ecde05444b91effcfcf007c7a8",
+      "release_path": "experiments/qm9_u0atom/experiment_protocol.json",
+      "release_sha256": "96ba19646c119708f1d7f92a5b4fdb47647958ecde05444b91effcfcf007c7a8",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm9_u0atom_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "06e9d5937671b2643180667c850e7d9241186193a5bd7d7071fb4a97c1de6ec1",
+      "release_path": "experiments/qm9_u0atom/evaluate_abcd.py",
+      "release_sha256": "06e9d5937671b2643180667c850e7d9241186193a5bd7d7071fb4a97c1de6ec1",
+      "changes": []
+    }
+  ],
+  "qm9_cv": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm9_cv_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm9_cv_geometry_v1/deploy/data.py",
+      "original_sha256": "16f9e620f20e97965d03a6c4b2a0b7a2ebab6c3647068e2a5df02434a0bc1a10",
+      "release_path": "experiments/qm9_cv/data.py",
+      "release_sha256": "16f9e620f20e97965d03a6c4b2a0b7a2ebab6c3647068e2a5df02434a0bc1a10",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm9_cv_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "b96f1d8eee4ad0edae8f120ba710149bcd3359a0466cc4e960585b564b0c92f7",
+      "release_path": "experiments/qm9_cv/train_fusion.py",
+      "release_sha256": "b96f1d8eee4ad0edae8f120ba710149bcd3359a0466cc4e960585b564b0c92f7",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm9_cv_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "59ead681d1b6466d5a2edc31fbd87c8439129eee6804b99198b26aa5448bb4c3",
+      "release_path": "experiments/qm9_cv/run_queue.py",
+      "release_sha256": "59ead681d1b6466d5a2edc31fbd87c8439129eee6804b99198b26aa5448bb4c3",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm9_cv_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "c99338e7eb36ddefdc8eede5c7d10491c207f6e24eac06db9914f65b83c41a5b",
+      "release_path": "experiments/qm9_cv/experiment_protocol.json",
+      "release_sha256": "c99338e7eb36ddefdc8eede5c7d10491c207f6e24eac06db9914f65b83c41a5b",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm9_cv_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "44a438afd63e87a215792eac1564faa447356f72f31af39db38ebbedcb6ca68e",
+      "release_path": "experiments/qm9_cv/evaluate_abcd.py",
+      "release_sha256": "44a438afd63e87a215792eac1564faa447356f72f31af39db38ebbedcb6ca68e",
+      "changes": []
+    }
+  ],
+  "qm8_e2cc2": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_e2cc2_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_e2cc2_geometry_v1/deploy/data.py",
+      "original_sha256": "6af1516cab186730ef9e6e10d8d0461bf5a505364733e55df1d19fe623d465ae",
+      "release_path": "experiments/qm8_e2cc2/data.py",
+      "release_sha256": "6af1516cab186730ef9e6e10d8d0461bf5a505364733e55df1d19fe623d465ae",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_e2cc2_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "36eff0bc7f2b0ea07a165f4b354705f1f9ed3bc21bd4274ce0fdb0f7c9710b0c",
+      "release_path": "experiments/qm8_e2cc2/train_fusion.py",
+      "release_sha256": "36eff0bc7f2b0ea07a165f4b354705f1f9ed3bc21bd4274ce0fdb0f7c9710b0c",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_e2cc2_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "e07ecf22b79a859afe6057a87f38acda9ac54e6a2e8708fbede9ad9ac3ba4a83",
+      "release_path": "experiments/qm8_e2cc2/run_queue.py",
+      "release_sha256": "e07ecf22b79a859afe6057a87f38acda9ac54e6a2e8708fbede9ad9ac3ba4a83",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_e2cc2_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "2c484ce9f356b968c1af9e4ac8b92d411449513e90f58f231bb979aad0054c7e",
+      "release_path": "experiments/qm8_e2cc2/experiment_protocol.json",
+      "release_sha256": "2c484ce9f356b968c1af9e4ac8b92d411449513e90f58f231bb979aad0054c7e",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_e2cc2_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "e7c3ef9bd188408ae998fcb201311f5b9882cdc65adcaf793fbe62712748e743",
+      "release_path": "experiments/qm8_e2cc2/evaluate_abcd.py",
+      "release_sha256": "e7c3ef9bd188408ae998fcb201311f5b9882cdc65adcaf793fbe62712748e743",
+      "changes": []
+    }
+  ],
+  "qm8_f1cc2": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_f1cc2_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_f1cc2_geometry_v1/deploy/data.py",
+      "original_sha256": "c7af7bfb2710d15ee7bf0303882de14c604c0cb8a80d432df5d0b29dec9cc8c4",
+      "release_path": "experiments/qm8_f1cc2/data.py",
+      "release_sha256": "c7af7bfb2710d15ee7bf0303882de14c604c0cb8a80d432df5d0b29dec9cc8c4",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_f1cc2_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "51af3c6572b8917cdcc8b4221fcc3d8a995cb8f49e36115b7079dfa237a1cfac",
+      "release_path": "experiments/qm8_f1cc2/train_fusion.py",
+      "release_sha256": "51af3c6572b8917cdcc8b4221fcc3d8a995cb8f49e36115b7079dfa237a1cfac",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_f1cc2_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "2b8ec9ab465f8ef4145931390308d91833719e9e8b56e4a17e76fb85193447d2",
+      "release_path": "experiments/qm8_f1cc2/run_queue.py",
+      "release_sha256": "2b8ec9ab465f8ef4145931390308d91833719e9e8b56e4a17e76fb85193447d2",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_f1cc2_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "01fd46cdb8893bf33a0880c6ef4745095c05498f3714ca613e260fed0577764a",
+      "release_path": "experiments/qm8_f1cc2/experiment_protocol.json",
+      "release_sha256": "01fd46cdb8893bf33a0880c6ef4745095c05498f3714ca613e260fed0577764a",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_f1cc2_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "3fe08be99d8d227faf2714de631c392bcc33ef8f457a25a0b8e4867c6d5578a7",
+      "release_path": "experiments/qm8_f1cc2/evaluate_abcd.py",
+      "release_sha256": "3fe08be99d8d227faf2714de631c392bcc33ef8f457a25a0b8e4867c6d5578a7",
+      "changes": []
+    }
+  ],
+  "qm8_f2cc2": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_f2cc2_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_f2cc2_geometry_v1/deploy/data.py",
+      "original_sha256": "166d25f79c73d320e7ac5131f51f2c877f044e8787d0d4f7708d4b33bf806f15",
+      "release_path": "experiments/qm8_f2cc2/data.py",
+      "release_sha256": "166d25f79c73d320e7ac5131f51f2c877f044e8787d0d4f7708d4b33bf806f15",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_f2cc2_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "f4b81c19cc88a2ad805fd4fd21f4982a68053b8d178422d18335de08ff550742",
+      "release_path": "experiments/qm8_f2cc2/train_fusion.py",
+      "release_sha256": "f4b81c19cc88a2ad805fd4fd21f4982a68053b8d178422d18335de08ff550742",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_f2cc2_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "0cb5d5472434404c855f0425a6151040550c31d3c403e72b7d8764414f5c7006",
+      "release_path": "experiments/qm8_f2cc2/run_queue.py",
+      "release_sha256": "0cb5d5472434404c855f0425a6151040550c31d3c403e72b7d8764414f5c7006",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_f2cc2_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "78a39a22842d19fec374f5e75ebe50b01f54c196fe56682557acf63a9bb2bc12",
+      "release_path": "experiments/qm8_f2cc2/experiment_protocol.json",
+      "release_sha256": "78a39a22842d19fec374f5e75ebe50b01f54c196fe56682557acf63a9bb2bc12",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_f2cc2_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "01de94ba93442bec5f159d1ee5aa7c54f968e019bbeeaa476ba0ab35771b0f8a",
+      "release_path": "experiments/qm8_f2cc2/evaluate_abcd.py",
+      "release_sha256": "01de94ba93442bec5f159d1ee5aa7c54f968e019bbeeaa476ba0ab35771b0f8a",
+      "changes": []
+    }
+  ],
+  "qm8_e1pbe0": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_e1pbe0_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_e1pbe0_geometry_v1/deploy/data.py",
+      "original_sha256": "9159a455c7b270272953c1a27a3e72e06ff1896f2d9df71be5cacb880a4a87b2",
+      "release_path": "experiments/qm8_e1pbe0/data.py",
+      "release_sha256": "9159a455c7b270272953c1a27a3e72e06ff1896f2d9df71be5cacb880a4a87b2",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_e1pbe0_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "ad75b157e560afbfc758cce485cb74f119f9ccccb959e1ed923a52643a1e06a4",
+      "release_path": "experiments/qm8_e1pbe0/train_fusion.py",
+      "release_sha256": "ad75b157e560afbfc758cce485cb74f119f9ccccb959e1ed923a52643a1e06a4",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_e1pbe0_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "ee953f16df003a17aeaa778e27bcd21265e63a5e4858d70e3e535497cb00ecb5",
+      "release_path": "experiments/qm8_e1pbe0/run_queue.py",
+      "release_sha256": "ee953f16df003a17aeaa778e27bcd21265e63a5e4858d70e3e535497cb00ecb5",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_e1pbe0_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "d24ad2f60712d5a899fd83cd4c63d5b3b010b013283ce641f3571750555437fc",
+      "release_path": "experiments/qm8_e1pbe0/experiment_protocol.json",
+      "release_sha256": "d24ad2f60712d5a899fd83cd4c63d5b3b010b013283ce641f3571750555437fc",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_e1pbe0_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "4f631c45db1220208adecb5988b2ee4121da6cccaf6040064e62a4a03111f9a6",
+      "release_path": "experiments/qm8_e1pbe0/evaluate_abcd.py",
+      "release_sha256": "4f631c45db1220208adecb5988b2ee4121da6cccaf6040064e62a4a03111f9a6",
+      "changes": []
+    }
+  ],
+  "qm8_e2pbe0": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_e2pbe0_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_e2pbe0_geometry_v1/deploy/data.py",
+      "original_sha256": "a8e178df860524aa527a34a70ede7679d596f18a3619217457ea535aad29342f",
+      "release_path": "experiments/qm8_e2pbe0/data.py",
+      "release_sha256": "a8e178df860524aa527a34a70ede7679d596f18a3619217457ea535aad29342f",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_e2pbe0_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "d0b475f678c78f1c5c3084fd21654a2ac7fcab2adf20c077523e98aa9915b4b2",
+      "release_path": "experiments/qm8_e2pbe0/train_fusion.py",
+      "release_sha256": "d0b475f678c78f1c5c3084fd21654a2ac7fcab2adf20c077523e98aa9915b4b2",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_e2pbe0_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "e76bef84f82d5c1e267fed963759bc713874d68b8ef9a0c49407f854d9fb6606",
+      "release_path": "experiments/qm8_e2pbe0/run_queue.py",
+      "release_sha256": "e76bef84f82d5c1e267fed963759bc713874d68b8ef9a0c49407f854d9fb6606",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_e2pbe0_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "bc3b11ccb1353c8947392dff1c01863ab09d6e118e1d4e16e33d4a411cab1c81",
+      "release_path": "experiments/qm8_e2pbe0/experiment_protocol.json",
+      "release_sha256": "bc3b11ccb1353c8947392dff1c01863ab09d6e118e1d4e16e33d4a411cab1c81",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_e2pbe0_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "e6b5c0f6975eab8b99cfc1c2e0f9e51e1fe4f2babff3b3c3f63ba15b48bde038",
+      "release_path": "experiments/qm8_e2pbe0/evaluate_abcd.py",
+      "release_sha256": "e6b5c0f6975eab8b99cfc1c2e0f9e51e1fe4f2babff3b3c3f63ba15b48bde038",
+      "changes": []
+    }
+  ],
+  "qm8_f1pbe0": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_f1pbe0_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_f1pbe0_geometry_v1/deploy/data.py",
+      "original_sha256": "5cf03cc25acdbab52bcef2fc6add0f4d866f421c19fa0143622e93b52616bd56",
+      "release_path": "experiments/qm8_f1pbe0/data.py",
+      "release_sha256": "5cf03cc25acdbab52bcef2fc6add0f4d866f421c19fa0143622e93b52616bd56",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_f1pbe0_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "ff7f4a219e0a7344090ec2412bcebf22be5bc25e5c21b88d3137e684dbaf05a9",
+      "release_path": "experiments/qm8_f1pbe0/train_fusion.py",
+      "release_sha256": "ff7f4a219e0a7344090ec2412bcebf22be5bc25e5c21b88d3137e684dbaf05a9",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_f1pbe0_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "4c50c104ba1bfee60bd58d3268df0b89d0d39f9075d7b5867b0c4434a3271175",
+      "release_path": "experiments/qm8_f1pbe0/run_queue.py",
+      "release_sha256": "4c50c104ba1bfee60bd58d3268df0b89d0d39f9075d7b5867b0c4434a3271175",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_f1pbe0_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "b5c98d17a05cd7d314acdf44ad2d16e7e66519eefa6a4c5863d3e764bfcbe38d",
+      "release_path": "experiments/qm8_f1pbe0/experiment_protocol.json",
+      "release_sha256": "b5c98d17a05cd7d314acdf44ad2d16e7e66519eefa6a4c5863d3e764bfcbe38d",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_f1pbe0_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "fdc1e1bdd8aecd32c760538a2e0746880ae1b8a1e49f5a307f5a171f987611c8",
+      "release_path": "experiments/qm8_f1pbe0/evaluate_abcd.py",
+      "release_sha256": "fdc1e1bdd8aecd32c760538a2e0746880ae1b8a1e49f5a307f5a171f987611c8",
+      "changes": []
+    }
+  ],
+  "qm8_f2pbe0": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_f2pbe0_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_f2pbe0_geometry_v1/deploy/data.py",
+      "original_sha256": "048d74eebe04dcdeeffaa7be27f70d701b409b6cc1801948b272ce0534bc1a61",
+      "release_path": "experiments/qm8_f2pbe0/data.py",
+      "release_sha256": "048d74eebe04dcdeeffaa7be27f70d701b409b6cc1801948b272ce0534bc1a61",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_f2pbe0_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "b21e7847a40f5ca8fd7bcc2d29aed5d3c8bc90001f0b00bb9c3a7b286615ebfd",
+      "release_path": "experiments/qm8_f2pbe0/train_fusion.py",
+      "release_sha256": "b21e7847a40f5ca8fd7bcc2d29aed5d3c8bc90001f0b00bb9c3a7b286615ebfd",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_f2pbe0_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "73f8ea1afccd6906bd8ad06282ceace57315663e11a8ca678f47863f1a09dd9d",
+      "release_path": "experiments/qm8_f2pbe0/run_queue.py",
+      "release_sha256": "73f8ea1afccd6906bd8ad06282ceace57315663e11a8ca678f47863f1a09dd9d",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_f2pbe0_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "505d2c0ced73f44a4faf79563456e9b69b5fc5314486c68a0532eb82ea5143e2",
+      "release_path": "experiments/qm8_f2pbe0/experiment_protocol.json",
+      "release_sha256": "505d2c0ced73f44a4faf79563456e9b69b5fc5314486c68a0532eb82ea5143e2",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_f2pbe0_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "04222c988c8b02dbb0b2cd8e2882f1769ba3fdd0e87a1c60858f61254652c077",
+      "release_path": "experiments/qm8_f2pbe0/evaluate_abcd.py",
+      "release_sha256": "04222c988c8b02dbb0b2cd8e2882f1769ba3fdd0e87a1c60858f61254652c077",
+      "changes": []
+    }
+  ],
+  "qm8_e1cam": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_e1cam_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_e1cam_geometry_v1/deploy/data.py",
+      "original_sha256": "2363caa2350f858c43f90143f9e04712c3d5ceaa46a5d01d6be7cb7461d216fd",
+      "release_path": "experiments/qm8_e1cam/data.py",
+      "release_sha256": "2363caa2350f858c43f90143f9e04712c3d5ceaa46a5d01d6be7cb7461d216fd",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_e1cam_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "6125d424212e80cf1d2bcad0a25028bfb46f687a63468cf5f2338e3266027bd8",
+      "release_path": "experiments/qm8_e1cam/train_fusion.py",
+      "release_sha256": "6125d424212e80cf1d2bcad0a25028bfb46f687a63468cf5f2338e3266027bd8",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_e1cam_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "e72f68deaa0fe1469cf9e92fe3935169ef84c54ec0e2104d8315d1096d6db179",
+      "release_path": "experiments/qm8_e1cam/run_queue.py",
+      "release_sha256": "e72f68deaa0fe1469cf9e92fe3935169ef84c54ec0e2104d8315d1096d6db179",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_e1cam_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "b2e2f5e09693aea3ad21add2634258fcaee615f6dd798a4988b60a05f268ea0c",
+      "release_path": "experiments/qm8_e1cam/experiment_protocol.json",
+      "release_sha256": "b2e2f5e09693aea3ad21add2634258fcaee615f6dd798a4988b60a05f268ea0c",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_e1cam_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "3c39db7bf8861fc2b96bcbc61124c3f774759bd85780b1ab29bffc09fcca12f2",
+      "release_path": "experiments/qm8_e1cam/evaluate_abcd.py",
+      "release_sha256": "3c39db7bf8861fc2b96bcbc61124c3f774759bd85780b1ab29bffc09fcca12f2",
+      "changes": []
+    }
+  ],
+  "qm8_e2cam": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_e2cam_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_e2cam_geometry_v1/deploy/data.py",
+      "original_sha256": "aa5cc1b574001650f9717ea26a9c3768e655c712b05d2a7aa38ee1d34113a53e",
+      "release_path": "experiments/qm8_e2cam/data.py",
+      "release_sha256": "aa5cc1b574001650f9717ea26a9c3768e655c712b05d2a7aa38ee1d34113a53e",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_e2cam_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "46924ef2e901704fcaaf2e27b3b355ba5b4a9f03f26c789a2b60b64a40acc1be",
+      "release_path": "experiments/qm8_e2cam/train_fusion.py",
+      "release_sha256": "46924ef2e901704fcaaf2e27b3b355ba5b4a9f03f26c789a2b60b64a40acc1be",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_e2cam_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "d6ce92c72b32c150219436e99c5e59a1d6f27109b1a438b57a8b65121c03c900",
+      "release_path": "experiments/qm8_e2cam/run_queue.py",
+      "release_sha256": "d6ce92c72b32c150219436e99c5e59a1d6f27109b1a438b57a8b65121c03c900",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_e2cam_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "b656a81b7bf90fb5ac70f6b881b6e413c747bb5c9fb0965886ae25a7af17549a",
+      "release_path": "experiments/qm8_e2cam/experiment_protocol.json",
+      "release_sha256": "b656a81b7bf90fb5ac70f6b881b6e413c747bb5c9fb0965886ae25a7af17549a",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_e2cam_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "ad1ead332c8f8767d303044b8a424220fd35e3ec6fb9e90af983f07a0d7e5553",
+      "release_path": "experiments/qm8_e2cam/evaluate_abcd.py",
+      "release_sha256": "ad1ead332c8f8767d303044b8a424220fd35e3ec6fb9e90af983f07a0d7e5553",
+      "changes": []
+    }
+  ],
+  "qm8_f1cam": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_f1cam_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_f1cam_geometry_v1/deploy/data.py",
+      "original_sha256": "b3ab5fb853c3d57a01ab3aa11c62ada51d8c5b8a5205518a3023db07f5642413",
+      "release_path": "experiments/qm8_f1cam/data.py",
+      "release_sha256": "b3ab5fb853c3d57a01ab3aa11c62ada51d8c5b8a5205518a3023db07f5642413",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_f1cam_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "fc0dacd2f864ad6c7eb445ada998d3b2bb111e780bb219e7e1a8da3da9ea8276",
+      "release_path": "experiments/qm8_f1cam/train_fusion.py",
+      "release_sha256": "fc0dacd2f864ad6c7eb445ada998d3b2bb111e780bb219e7e1a8da3da9ea8276",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_f1cam_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "95c5bee44a98055fad7d4020f988f8cb092d403b8695a744a5c3c5dcd9d859ce",
+      "release_path": "experiments/qm8_f1cam/run_queue.py",
+      "release_sha256": "95c5bee44a98055fad7d4020f988f8cb092d403b8695a744a5c3c5dcd9d859ce",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_f1cam_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "b075eb2d3914eb0d3f6cdecbd67b3ae4a18275fc0b8025db2e0f17acf892c0fa",
+      "release_path": "experiments/qm8_f1cam/experiment_protocol.json",
+      "release_sha256": "b075eb2d3914eb0d3f6cdecbd67b3ae4a18275fc0b8025db2e0f17acf892c0fa",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_f1cam_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "d911a3a9349a513f520706ef84dd83cd1bcd933b204340f5278fcb80e4704997",
+      "release_path": "experiments/qm8_f1cam/evaluate_abcd.py",
+      "release_sha256": "d911a3a9349a513f520706ef84dd83cd1bcd933b204340f5278fcb80e4704997",
+      "changes": []
+    }
+  ],
+  "qm8_f2cam": [
+    {
+      "runtime_name": "Model.py",
+      "original_path": "work/qm8_f2cam_geometry_v1/deploy/Model.py",
+      "original_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "release_path": "../fusion/Model.py",
+      "release_sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "changes": []
+    },
+    {
+      "runtime_name": "data.py",
+      "original_path": "work/qm8_f2cam_geometry_v1/deploy/data.py",
+      "original_sha256": "4d16987bb853a5c297a7b440d8cae3045595c07baaf804591f61c272e87379a8",
+      "release_path": "experiments/qm8_f2cam/data.py",
+      "release_sha256": "4d16987bb853a5c297a7b440d8cae3045595c07baaf804591f61c272e87379a8",
+      "changes": []
+    },
+    {
+      "runtime_name": "train_fusion.py",
+      "original_path": "work/qm8_f2cam_geometry_v1/deploy/train_fusion.py",
+      "original_sha256": "8900c6dedccbab58e0f2525ea1be631bab2f40e976da5fc90bb32b18e4227bd7",
+      "release_path": "experiments/qm8_f2cam/train_fusion.py",
+      "release_sha256": "8900c6dedccbab58e0f2525ea1be631bab2f40e976da5fc90bb32b18e4227bd7",
+      "changes": []
+    },
+    {
+      "runtime_name": "run_queue.py",
+      "original_path": "work/qm8_f2cam_geometry_v1/deploy/run_queue.py",
+      "original_sha256": "8fafb387b345a5dcfc74e3e4b73c5e143a341192801f793e7297dd62f136a101",
+      "release_path": "experiments/qm8_f2cam/run_queue.py",
+      "release_sha256": "8fafb387b345a5dcfc74e3e4b73c5e143a341192801f793e7297dd62f136a101",
+      "changes": []
+    },
+    {
+      "runtime_name": "experiment_protocol.json",
+      "original_path": "work/qm8_f2cam_geometry_v1/deploy/experiment_protocol.json",
+      "original_sha256": "822024eb58379adef7f1da68ec9103640b0b5fd99e1e4a439c6ad99f2833964a",
+      "release_path": "experiments/qm8_f2cam/experiment_protocol.json",
+      "release_sha256": "822024eb58379adef7f1da68ec9103640b0b5fd99e1e4a439c6ad99f2833964a",
+      "changes": []
+    },
+    {
+      "runtime_name": "evaluate_abcd.py",
+      "original_path": "work/qm8_f2cam_geometry_v1/deploy/evaluate_abcd.py",
+      "original_sha256": "45503392c35b64d4b573de8151f80d64dd1d50636f12c65f214a8a063fb7905e",
+      "release_path": "experiments/qm8_f2cam/evaluate_abcd.py",
+      "release_sha256": "45503392c35b64d4b573de8151f80d64dd1d50636f12c65f214a8a063fb7905e",
+      "changes": []
+    }
+  ],
+  "historical_b": [
+    {
+      "original_path": "work/geometry_B_v1/infer_geometry.py",
+      "original_sha256": "08a1ef29d3d0f6a9eb20193403401be4bf1ff761e3a0e05e6a8701774961fb52",
+      "release_path": "common/evaluate_historical_abcd.py",
+      "release_sha256": "39ad64e8ef662a5f4c0bc152783e0d54dcb23118e705b5e431e6afcba65352f4",
+      "changes": [
+        "Replace author workspace/dependency injection with --source, --coordinates and --out; arithmetic and cohort checks unchanged."
+      ]
+    }
+  ],
+  "coordinate_functions": [
+    {
+      "original_path": "work/geometry_pilot_v1/run_geometry_pilot.py",
+      "original_sha256": "a86c05684266c17fc8dfe4bbcecfa3ac254f8bb549593f40c93481b0b69f28cf",
+      "release_path": "generation/primitives.py",
+      "release_sha256": "d34634ca026fb56842fb0c344c6f8368625cf14d9e117b60ff272ef26a652f1e",
+      "functions": [
+        "canonical",
+        "seed_for",
+        "embed_parameters",
+        "point_features",
+        "warmup"
+      ],
+      "changes": [
+        "Extract listed function bodies unchanged; supply explicit local imports and constants."
+      ]
+    },
+    {
+      "original_path": "work/qm8_test_geometry_v1/generate_coordinates.py",
+      "original_sha256": "dc082b3f0bc8b3816d0dfe27005c50c6e7127d7e0ae89ff0f24a14422b35bb0c",
+      "release_path": "generation/qm8.py",
+      "release_sha256": "89b4b3bb1d9cc696031bf4e0cf536c2df1a685c38065ab3a29899dbc683ebe59",
+      "functions": [
+        "generate"
+      ],
+      "changes": [
+        "Extract listed function bodies unchanged; supply explicit local imports and constants."
+      ]
+    },
+    {
+      "original_path": "work/qm9_geometry_v1/generate_coordinates.py",
+      "original_sha256": "95d57415bc6c8f4bbf2b0b5a3cc5ec213852c324de19a8ce048c423f4ee3f3bf",
+      "release_path": "generation/qm9.py",
+      "release_sha256": "47716a2cca55405248d7cce5c05e0165c8d8f8f5a2df165f46d46e0d3d52521c",
+      "functions": [
+        "generate"
+      ],
+      "changes": [
+        "Extract listed function bodies unchanged; supply explicit local imports and constants."
+      ]
+    },
+    {
+      "original_path": "work/trimo_pilot/prepare_data.py",
+      "original_sha256": "6fe80eb3b9b4eeee4da09698efb46a2ef87c698219c41bc6d5af77bced7878eb",
+      "release_path": "generation/feature_reference.py",
+      "release_sha256": "f37831269348e99a094b559d6583f839f38f16ce2b25a4912aab55a6eedcab6c",
+      "functions": [
+        "atom_values",
+        "bond_values",
+        "canonical_mol"
+      ],
+      "changes": [
+        "Extract listed function bodies unchanged; supply explicit local imports and constants."
+      ]
+    },
+    {
+      "original_path": "work/geometry_pilot_v1/prepare_selection.py",
+      "original_sha256": "1fd84293a8bd326398c5e951c7158addaadb5aea8a9f96bbc83ca4046eef19d0",
+      "release_path": "generation/source_checks.py",
+      "release_sha256": "cd755e7c498a2a8e7f3af1645b8623a55e8df3b34b2801468fd93a87943fef0f",
+      "functions": [
+        "sha256",
+        "canonical_identity",
+        "compare_identity",
+        "point_features",
+        "graph_matches_cache",
+        "qm8_selected_xyz",
+        "qm9_xyz"
+      ],
+      "changes": [
+        "Extract listed function bodies unchanged; supply explicit local imports and constants."
+      ]
+    }
+  ]
+}

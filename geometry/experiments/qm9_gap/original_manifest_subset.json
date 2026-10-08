@@ -1,0 +1,45 @@
+{
+  "original_manifest": {
+    "file": "work/qm9_gap_geometry_v1/deploy/source_manifest.json",
+    "sha256": "5308de348cbad7372c64e816fca47210a7de92912e721b58d7bee215cd34f676",
+    "kind": "source_manifest.json"
+  },
+  "included_entries": {
+    "Model.py": {
+      "sha256": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "bytes": 35024
+    },
+    "data.py": {
+      "sha256": "36bb63cad1a48c9ce7cdba1145a4ab991845cb39fa632b68a123b44db0db9108",
+      "bytes": 7296
+    },
+    "evaluate_abcd.py": {
+      "sha256": "b56189cbf46c9e3afbb1d587281afee7e7b90ec69fe3c35a5df94464c8ca11d2",
+      "bytes": 23029
+    },
+    "experiment_protocol.json": {
+      "sha256": "e294e4317202028985d988654c6722f974add9c2554f4213873804e73778e96d",
+      "bytes": 5719
+    },
+    "run_queue.py": {
+      "sha256": "76509b57f3e10b23a863ef7e2df92dc11d02fc19bcad35539b0e4fb2996d2a7a",
+      "bytes": 9930
+    },
+    "run_real_cache_smoke.py": {
+      "sha256": "57fdc6a960ddb794c26760d4eca30973ec69825807406d9529f6ca66d132fadc",
+      "bytes": 10072
+    },
+    "test_evaluate_abcd.py": {
+      "sha256": "075865be7464e43dea0f9bf7b063492b504671698baa963d65bb8488d9ca94b2",
+      "bytes": 5189
+    },
+    "test_geometry.py": {
+      "sha256": "e34d4c8e531746d212fc58456e25f75749c5f5e1bd9311cf37c76fc882b54abf",
+      "bytes": 10780
+    },
+    "train_fusion.py": {
+      "sha256": "0cf1130dd66f73dc196fb825c8feac9c50cfdd8ad784ae440b13ce2ea5c21ee9",
+      "bytes": 45629
+    }
+  }
+}

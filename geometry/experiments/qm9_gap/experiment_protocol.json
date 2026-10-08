@@ -1,0 +1,169 @@
+{
+  "version": "qm9-gap-geometry-v1",
+  "dataset": "QM9",
+  "target": "gap",
+  "unit": "hartree",
+  "unit_source": "https://raw.githubusercontent.com/pyg-team/pytorch_geometric/master/torch_geometric/datasets/qm9.py",
+  "status": "prepared; formal training not started",
+  "fusion": "gate",
+  "training_conditions": [
+    "dft",
+    "mmff"
+  ],
+  "seeds": [
+    42,
+    2025,
+    3407
+  ],
+  "number_of_training_runs": 6,
+  "number_of_test_evaluations": 12,
+  "split_counts": {
+    "train": {
+      "original": 107108,
+      "eligible": 105992,
+      "excluded": 1116
+    },
+    "val": {
+      "original": 13388,
+      "eligible": 13251,
+      "excluded": 137
+    },
+    "test": {
+      "original": 13389,
+      "eligible": 13243,
+      "excluded": 146
+    }
+  },
+  "split_rule": "Filter original fixed random ID split; no grouping or reshuffle; no target-based selection",
+  "matched_cohort": 132486,
+  "official_qm9_filtering_applied": false,
+  "geometry_generation": "Reused byte-identical coordinates from qm9_geometry_v1; see provenance/protocol.json",
+  "features": [
+    "centered_x_angstrom",
+    "centered_y_angstrom",
+    "centered_z_angstrom",
+    "rho_angstrom",
+    "element_C",
+    "element_F",
+    "element_H",
+    "element_N",
+    "element_O"
+  ],
+  "training_reference": {
+    "split_seed": 20260927,
+    "max_epochs": 200,
+    "min_epochs": 50,
+    "early_stopping_patience": 30,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "grad_clip": 0.5,
+    "optimizer": "AdamW",
+    "scheduler": "ReduceLROnPlateau",
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 10,
+    "scheduler_min_lr": 1e-06,
+    "scheduler_threshold": 0.0,
+    "scheduler_threshold_mode": "abs",
+    "loss": "sample-mean L1 on train-standardized target",
+    "cmcr": false,
+    "mixed_precision": false,
+    "num_workers": 0,
+    "split_strategy": "original fixed split filtered by matched geometry success; original ID order; no resplitting",
+    "official_qm9_filtering_applied": false,
+    "model_common": {
+      "vocab_size": 21,
+      "smiles_length": 22,
+      "d_smiles": 256,
+      "smiles_num_heads": 8,
+      "smiles_num_layers": 6,
+      "cnn_kernels": 256,
+      "d_node": 31,
+      "d_edge": 14,
+      "d_hidden": 256,
+      "graph_num_layers": 6,
+      "d_point_input": 9,
+      "d_point_cloud": 1024,
+      "d_point_output": 256,
+      "d_output": 1,
+      "use_smiles": true,
+      "use_graph": true,
+      "use_point_cloud": true,
+      "dropout": 0.1,
+      "fusion_hidden_dim": null,
+      "fusion_attention_heads": 4
+    },
+    "target_scaling": {
+      "mean": 0.25101684749792436,
+      "std": 0.047452742601979125,
+      "n_fit": 105992,
+      "fit_split": "train",
+      "ddof": 0
+    },
+    "cpu_threads": 4,
+    "max_minutes": 420.0,
+    "diagnostic_subset": 0,
+    "diagnostic_max_steps": 0,
+    "training_rng_offset": 1729,
+    "early_stopping_min_delta": 0.0,
+    "split_grouping": "original QM9 split is ungrouped; no structural group separation claim"
+  },
+  "training_scaling_override": {
+    "mean": 0.25101684749792436,
+    "std": 0.047452742601979125,
+    "n_fit": 105992,
+    "fit_split": "train",
+    "ddof": 0
+  },
+  "initialization": "Each gap model is trained from scratch; the same seed has identical DFT/MMFF initialization; no previous-property weights",
+  "budget_limits": {
+    "queue_wall_hours": 48,
+    "each_training_run_minutes": 420,
+    "concurrency": 6
+  },
+  "evaluation_after_all_training": [
+    {
+      "label": "A_prime",
+      "train_geometry": "dft",
+      "test_geometry": "dft"
+    },
+    {
+      "label": "B_prime",
+      "train_geometry": "dft",
+      "test_geometry": "etkdg"
+    },
+    {
+      "label": "C_prime",
+      "train_geometry": "dft",
+      "test_geometry": "mmff"
+    },
+    {
+      "label": "D",
+      "train_geometry": "mmff",
+      "test_geometry": "mmff"
+    }
+  ],
+  "evaluation_policy": "A/B/C use the same DFT checkpoint; D uses MMFF checkpoint; all four evaluations use one GPU backend and batch size 128 after all six trainings finish",
+  "reporting": "MAE/RMSE mean +/- sample SD across three seeds in hartree; paired changes and identity subsets; no significance claim from three seeds",
+  "known_limitations": [
+    "Original random split retained; no structural-group split claim",
+    "Official QM9 geometry exclusion list not applied; controlled internal comparison",
+    "Unspecified stereochemistry and differing relaxed SMILES may confound coordinate-only interpretation; report fixed identity subsets"
+  ],
+  "data_sha256": {
+    "dft": {
+      "cache.npz": "744e016fd8f185a0bfe24dc361638817af69a8309ebd1d3b02d625370647d56a",
+      "metadata.json": "578226af7ff4cb069db763f4b8f459fcf77506eac938d5536ef7061f2cc65922",
+      "fixed_split_ids.json": "8478254b30507322f5f570ca0757f6c9cc0e28b8ee526e584a27ee9a4ddaffa1"
+    },
+    "mmff": {
+      "cache.npz": "b7ccf308f76a9f9f9faeb4bfd593af775162b02c5230191d3e7cf33c6c6395b5",
+      "metadata.json": "3f88267568939293be5e176e7b428c8bd18f2857c0d957747a20356af5ec9aac",
+      "fixed_split_ids.json": "8478254b30507322f5f570ca0757f6c9cc0e28b8ee526e584a27ee9a4ddaffa1"
+    }
+  },
+  "etkdg_source_sha256": "8140ecba0bd7126c7e31a9cd95a0bfeadcc2aec321b526333b0cd21c749ebb0e",
+  "etkdg_test_sha256": "ac3db18bfd4d8bdb3169df5070ad670f488ca6daca44e68beb07aa11c65f20c6",
+  "etkdg_test_selection": "Original cache row order, filtered by frozen matched test IDs; no regeneration or fitting",
+  "reference_protocol_sha256": "6cdf5193f2795e0ac78012cdf2b8e28c770d6a16ee2538f60ba49a1ebf83fca1"
+}

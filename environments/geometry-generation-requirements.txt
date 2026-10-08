@@ -1,0 +1,5 @@
+# Historical CPU coordinate generation: Python 3.11.4.
+# Keep separate from the GPU training environment; RDKit affects conformers.
+numpy==2.1.2
+rdkit==2026.3.3
+SmilesPE==0.0.3

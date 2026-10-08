@@ -1,0 +1,163 @@
+{
+  "dims": {
+    "node_dim": 31,
+    "edge_dim": 14,
+    "vocab_size": 21,
+    "smiles_length": 22,
+    "point_dim": 9,
+    "max_atoms": 29
+  },
+  "atom_schema": {
+    "element": [
+      "C",
+      "F",
+      "N",
+      "O"
+    ],
+    "degree": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "total_h": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "formal_charge": [
+      -1,
+      0,
+      1
+    ],
+    "hybridization": [
+      "SP",
+      "SP2",
+      "SP3"
+    ],
+    "chirality": [
+      "CHI_UNSPECIFIED"
+    ],
+    "atom_ring_size": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "bond_schema": {
+    "bond_type": [
+      "AROMATIC",
+      "DOUBLE",
+      "SINGLE",
+      "TRIPLE"
+    ],
+    "stereo": [
+      "STEREONONE"
+    ],
+    "bond_ring_size": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "token_to_idx": {
+    "PAD": 0,
+    "#": 1,
+    "(": 2,
+    ")": 3,
+    "1": 4,
+    "2": 5,
+    "3": 6,
+    "4": 7,
+    "5": 8,
+    "=": 9,
+    "C": 10,
+    "F": 11,
+    "N": 12,
+    "O": 13,
+    "[C-]": 14,
+    "[CH-]": 15,
+    "[N-]": 16,
+    "[NH+]": 17,
+    "[NH2+]": 18,
+    "[NH3+]": 19,
+    "[O-]": 20
+  },
+  "target_names": [
+    "rotational_constant_A",
+    "rotational_constant_B",
+    "rotational_constant_C",
+    "dipole_moment",
+    "isotropic_polarizability",
+    "energy_HOMO",
+    "energy_LUMO",
+    "gap",
+    "electronic_spatial_extent",
+    "zero_point_vibrational_energy",
+    "internal_energy_0K",
+    "internal_energy_298K",
+    "enthalpy_298K",
+    "free_energy_298K",
+    "heat_capacity_298K",
+    "n_H",
+    "n_C",
+    "n_N",
+    "n_O",
+    "n_F",
+    "atom_reference_U0_hartree",
+    "internal_energy_0K_atom_hartree",
+    "internal_energy_0K_atom_kcal_mol",
+    "atomization_energy_0K_kcal_mol_positive"
+  ],
+  "target_units": {
+    "dipole_moment": "Debye"
+  },
+  "point_features": [
+    "centered_x_angstrom",
+    "centered_y_angstrom",
+    "centered_z_angstrom",
+    "rho_angstrom",
+    "element_C",
+    "element_F",
+    "element_H",
+    "element_N",
+    "element_O"
+  ],
+  "dataset": "QM9",
+  "molecule_count": 133885,
+  "sample_count": 133885,
+  "preprocessing_version": "qm9-fixed-split-matched-geometry-v1",
+  "eligible_count": 132486,
+  "point_coordinate_unit": "angstrom",
+  "original_provenance": {
+    "original_cache_sha256": "c42e44ec05788afb284438e6e346be6fc1b5805838dfe97e79f9ae4d1495b5cc",
+    "original_metadata_sha256": "ebcae50668e2cc0522ee0304d968827d55e72560e81340629cbf4b4170395b54",
+    "original_split_sha256": "2cfe273d1cc481721266daf6dec1ff9de77e5a6a655547a548f3f025c1a63009",
+    "generation_protocol_sha256": "9a2310777e85cddc423d3c2fbbc35e0d4fe70043ca2c94ed1e25732fd3a859a9",
+    "generation_manifest_sha256": "1a510bac615aac27f274512f1c8060c341ca89d25f870f3dc4a599cb8190ab15",
+    "availability_sha256": "e14d0c2dfc6e91cbb1e45b2bddae007b33aa760c09a2b73eea000badf0ea5fbc",
+    "build_script_sha256": "0fac69c32a0b1a21b25f658e29a86be61bed5ba222b1c6a300865db952b8effe"
+  },
+  "official_qm9_filtering_applied": false,
+  "eligibility_policy": "Input composition matches DFT; valid ETKDG; MMFF code0 with valid features",
+  "identity_policy": "Original input and graph match XYZ first SMILES; relaxed second SMILES audited only, never used to generate or filter",
+  "split_policy": "Filter original fixed random ID split; no grouping or reshuffle; no target-based selection",
+  "matched_cross_split_nonstereo_structure_count": 25,
+  "geometry_condition": "mmff",
+  "cache_sha256": "b7ccf308f76a9f9f9faeb4bfd593af775162b02c5230191d3e7cf33c6c6395b5",
+  "fixed_split_sha256": "8478254b30507322f5f570ca0757f6c9cc0e28b8ee526e584a27ee9a4ddaffa1",
+  "coordinate_source_method": "ETKDGv3 + bounded MMFF94; no DFT alignment/backfill"
+}

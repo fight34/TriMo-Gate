@@ -1,0 +1,177 @@
+{
+  "version": "qm8-e1cam-geometry-v1",
+  "dataset": "QM8",
+  "target": "E1-CAM",
+  "unit": "hartree",
+  "status": "prepared; formal training not started",
+  "fusion": "gate",
+  "target_cache_column_0based": 8,
+  "target_method": "LR-TDDFT(CAMB3LYP/def2TZVP)",
+  "training_conditions": [
+    "dft",
+    "mmff"
+  ],
+  "seeds": [
+    42,
+    2025,
+    3407
+  ],
+  "number_of_training_runs": 6,
+  "number_of_test_evaluations": 12,
+  "split_counts": {
+    "train": {
+      "original": 17398,
+      "eligible": 17356,
+      "excluded": 42
+    },
+    "val": {
+      "original": 2174,
+      "eligible": 2164,
+      "excluded": 10
+    },
+    "test": {
+      "original": 2175,
+      "eligible": 2169,
+      "excluded": 6
+    }
+  },
+  "matched_cohort": 21689,
+  "split_rule": "Original structural-group split, filtered by shared MMFF success; no resplitting",
+  "geometry_generation": "Reuse byte-identical QM8 E1-CC2 frozen coordinates; no regeneration or fitting",
+  "features": [
+    "centered_x_angstrom",
+    "centered_y_angstrom",
+    "centered_z_angstrom",
+    "rho_angstrom",
+    "element_C",
+    "element_F",
+    "element_H",
+    "element_N",
+    "element_O"
+  ],
+  "training_reference": {
+    "split_seed": 20260927,
+    "max_epochs": 200,
+    "min_epochs": 50,
+    "early_stopping_patience": 30,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "grad_clip": 0.5,
+    "optimizer": "AdamW",
+    "scheduler": "ReduceLROnPlateau",
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 10,
+    "scheduler_min_lr": 1e-06,
+    "scheduler_threshold": 0.0,
+    "scheduler_threshold_mode": "abs",
+    "loss": "sample-mean L1 on train-standardized target",
+    "cmcr": false,
+    "mixed_precision": false,
+    "num_workers": 0,
+    "split_strategy": "original fixed split filtered by matched geometry success; original ID order; no resplitting",
+    "split_grouping": "original cache group_ids retained; no structural group crosses fixed splits",
+    "split_sizes": {
+      "train": 17356,
+      "val": 2164,
+      "test": 2169
+    },
+    "dataset": "QM8",
+    "target": "E1-CAM",
+    "unit": "hartree",
+    "expected_sample_count": 21747,
+    "model_common": {
+      "vocab_size": 22,
+      "smiles_length": 58,
+      "d_smiles": 256,
+      "smiles_num_heads": 8,
+      "smiles_num_layers": 6,
+      "cnn_kernels": 256,
+      "d_node": 30,
+      "d_edge": 13,
+      "d_hidden": 256,
+      "graph_num_layers": 6,
+      "d_point_input": 9,
+      "d_point_cloud": 1024,
+      "d_point_output": 256,
+      "d_output": 1,
+      "use_smiles": true,
+      "use_graph": true,
+      "use_point_cloud": true,
+      "dropout": 0.1,
+      "fusion_hidden_dim": null,
+      "fusion_attention_heads": 4
+    },
+    "target_scaling": {
+      "mean": 0.21669120547879697,
+      "std": 0.04453368194387696,
+      "n_fit": 17356,
+      "fit_split": "train",
+      "ddof": 0
+    },
+    "cpu_threads": 4,
+    "max_minutes": 420.0,
+    "diagnostic_subset": 0,
+    "diagnostic_max_steps": 0,
+    "training_rng_offset": 1729,
+    "early_stopping_min_delta": 0.0
+  },
+  "training_scaling_override": {
+    "mean": 0.21669120547879697,
+    "std": 0.04453368194387696,
+    "n_fit": 17356,
+    "fit_split": "train",
+    "ddof": 0
+  },
+  "initialization": "Each target trained from scratch; paired DFT/MMFF seed initialization equal; no previous-property weights",
+  "budget_limits": {
+    "queue_wall_hours": 12,
+    "each_training_run_minutes": 420,
+    "concurrency": 6
+  },
+  "evaluation_after_all_training": [
+    {
+      "label": "A_prime",
+      "train_geometry": "dft",
+      "test_geometry": "dft"
+    },
+    {
+      "label": "B_prime",
+      "train_geometry": "dft",
+      "test_geometry": "etkdg"
+    },
+    {
+      "label": "C_prime",
+      "train_geometry": "dft",
+      "test_geometry": "mmff"
+    },
+    {
+      "label": "D",
+      "train_geometry": "mmff",
+      "test_geometry": "mmff"
+    }
+  ],
+  "evaluation_policy": "A/B/C share DFT best; D uses MMFF best; all12 evaluations on sameGPU FP32 batch128 after all6 trainings finish",
+  "reporting": "MAE/RMSE mean +/- sample SD over3 seeds in original unit; paired percentage changes; no statistical significance inference from3 seeds",
+  "known_limitations": [
+    "Original retained21747 cohort with same historical39 exclusions; matching MMFF success defines eligible21689",
+    "Original structural-group split retained; internal controlled comparison, not official benchmark split",
+    "Old E1-CC2 final ABCD CPU table retained; new target comparisons use internally common GPU backend"
+  ],
+  "data_sha256": {
+    "dft": {
+      "cache.npz": "0c9a729d08b7d5279e8cca3f6a4c2f532cc447251fde784fa85216f6d31f3c64",
+      "metadata.json": "0d6926bb1e6898948f9384d85b4eb5ecd6bad38a58a6e9f228fdbf41872a800b",
+      "fixed_split_ids.json": "02fc05a215ffb136b3c60c37df66b7a0ac9a1e7d8fe04183addbed2cd4eb3756"
+    },
+    "mmff": {
+      "cache.npz": "8ad2638fa09ef2708cca7988fb36ee9e264b85032090dbdc9e61fcca667a9099",
+      "metadata.json": "26c46023d3fa4b9c812109d1d28124cf0ea4cf15753290be51854b740685f99c",
+      "fixed_split_ids.json": "02fc05a215ffb136b3c60c37df66b7a0ac9a1e7d8fe04183addbed2cd4eb3756"
+    }
+  },
+  "etkdg_source_sha256": "5808037c5f11da51dbfe0bef165f9cbabf85f80fef24e8cfafb9564d2c1f86c1",
+  "etkdg_test_sha256": "f777ee7912d545a54f9e599f4a64f4115c59e9e2ce04cf2618842b9fd0b6545c",
+  "etkdg_test_selection": "Original cache row order filtered to frozen matched test IDs; no regeneration",
+  "reference_protocol_sha256": "ff530787f806c1f2c79fccdbc90c5b7ead36f3ff8b3b37642ca501c959d38eae"
+}

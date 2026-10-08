@@ -1,0 +1,137 @@
+{
+  "qm9_mu": {
+    "target": "dipole_moment",
+    "unit": "Debye",
+    "split_counts": {
+      "train": 107108,
+      "val": 13388,
+      "test": 13389
+    },
+    "historical_cache_sha256": "c42e44ec05788afb284438e6e346be6fc1b5805838dfe97e79f9ae4d1495b5cc",
+    "historical_metadata_sha256": "ebcae50668e2cc0522ee0304d968827d55e72560e81340629cbf4b4170395b54",
+    "source_code_sha256": {
+      "train_fusion.py": "856ffd61545e1b496c441071962645975003b3d47574c020ad9fefc6a1041ecc",
+      "Model.py": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "data.py": "aee090c3296c72ff16aaf56e661e1f1f66da696c5ff75b31f448d9bd39c9b280"
+    },
+    "dims": {
+      "node_dim": 31,
+      "edge_dim": 14,
+      "vocab_size": 21,
+      "smiles_length": 22,
+      "point_dim": 9,
+      "max_atoms": 29
+    },
+    "target_names": [
+      "rotational_constant_A",
+      "rotational_constant_B",
+      "rotational_constant_C",
+      "dipole_moment",
+      "isotropic_polarizability",
+      "energy_HOMO",
+      "energy_LUMO",
+      "gap",
+      "electronic_spatial_extent",
+      "zero_point_vibrational_energy",
+      "internal_energy_0K",
+      "internal_energy_298K",
+      "enthalpy_298K",
+      "free_energy_298K",
+      "heat_capacity_298K",
+      "n_H",
+      "n_C",
+      "n_N",
+      "n_O",
+      "n_F",
+      "atom_reference_U0_hartree",
+      "internal_energy_0K_atom_hartree",
+      "internal_energy_0K_atom_kcal_mol",
+      "atomization_energy_0K_kcal_mol_positive"
+    ],
+    "source_table_sha256": "ff7369bbd69b84caa25e663aa4fd2be4134be60cc4cc6b509ec445ebe15e5067",
+    "preprocessing_environment": {
+      "python": "3.11.4",
+      "numpy": "2.1.2",
+      "rdkit": "2026.03.3"
+    },
+    "training_environment": {
+      "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+      "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+      "torch": "2.3.0+cu121",
+      "torch_cuda": "12.1",
+      "device": "cuda:0",
+      "torch_threads": 4,
+      "cuda_visible_devices": "0",
+      "packages": {
+        "numpy": "1.26.4",
+        "torch-geometric": "2.5.3",
+        "torch-scatter": "2.1.2+pt23cu121",
+        "rdkit": "2024.3.5"
+      },
+      "gpu_name": "NVIDIA GeForce RTX 4090 D",
+      "gpu_total_bytes": 25252724736
+    }
+  },
+  "qm8_e1cc2": {
+    "target": "E1-CC2",
+    "unit": "hartree",
+    "split_counts": {
+      "train": 17398,
+      "val": 2174,
+      "test": 2175
+    },
+    "historical_cache_sha256": "b2f3c426d5dd9ed66e214317d69af2f352f036e175f6066a864876c685708acc",
+    "historical_metadata_sha256": "8d9ef07aa49395291c27125de663231636e914114ed08b05d1fd0017364983be",
+    "source_code_sha256": {
+      "train_fusion.py": "15cccdd7eb3120b365781afdc0f873935b0e8d26c2caa479636c1304d5271eb8",
+      "Model.py": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "data.py": "9797c31f6710743aa2ef5ee82484d1fca824afadacd97fe4b24abd37bdaba5a7"
+    },
+    "dims": {
+      "node_dim": 30,
+      "edge_dim": 13,
+      "vocab_size": 22,
+      "smiles_length": 58,
+      "point_dim": 9,
+      "max_atoms": 26
+    },
+    "target_names": [
+      "E1-CC2",
+      "E2-CC2",
+      "f1-CC2",
+      "f2-CC2",
+      "E1-PBE0",
+      "E2-PBE0",
+      "f1-PBE0",
+      "f2-PBE0",
+      "E1-CAM",
+      "E2-CAM",
+      "f1-CAM",
+      "f2-CAM"
+    ],
+    "source_table_sha256": "59319acfb632ea7da16b12a6a8a6a6be7ec064c1940e7a6d3e044d471572b6f2",
+    "preprocessing_environment": {
+      "python": "3.11.4",
+      "numpy": "2.1.2",
+      "rdkit": "2026.03.3"
+    },
+    "training_environment": {
+      "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+      "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+      "torch": "2.3.0+cu121",
+      "torch_cuda": "12.1",
+      "device": "cuda:0",
+      "torch_threads": 4,
+      "cuda_visible_devices": "0",
+      "packages": {
+        "numpy": "1.26.4",
+        "torch-geometric": "2.5.3",
+        "torch-scatter": "2.1.2+pt23cu121",
+        "rdkit": "2024.3.5"
+      },
+      "gpu_name": "NVIDIA GeForce RTX 4090 D",
+      "gpu_total_bytes": 25252724736
+    },
+    "clean_table_sha256": "fd2e39c1e1c3245bfd18718609de242b40a80de1f2d1bb955a5cf71cb3f31dbc"
+  }
+}

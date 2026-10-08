@@ -1,0 +1,3 @@
+# Preserve the recorded source/split bytes across Windows and Linux checkouts.
+# Automatic line-ending conversion would invalidate SHA256 provenance checks.
+* -text

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-08",
+  "scope": "Local CPU release validation; no full benchmark or Bayesian optimization run",
+  "status": "passed",
+  "command": "python -B benchmark/test_release.py",
+  "tests_passed": 6,
+  "elapsed_test_seconds": 28.791,
+  "local_cpu_validation_environment": {
+    "python": "3.11.4",
+    "torch": "2.6.0+cu124",
+    "torch-geometric": "2.5.3",
+    "torch-scatter": "2.1.2+pt26cu124",
+    "numpy": "2.1.2",
+    "pandas": "2.2.3",
+    "rdkit": "2026.3.3",
+    "SmilesPE": "0.0.3"
+  },
+  "checks": [
+    "All 11 published benchmark Python sources compile",
+    "Both QM8 and QM9 CLI input checks pass on synthetic SMILES/label/XYZ fixtures with nine point features",
+    "Row/SMILES mismatches, reordered map rows, duplicate XYZ files, missing files, and path escapes are rejected",
+    "All seven nonempty modality combinations complete CPU forward and backward with finite outputs/gradients; multi-branch models select GatedFusion and absent branches receive zero gate weight",
+    "Seeded random splits are disjoint and sorted; full-pool retrieval and first-index tie handling pass",
+    "XYZ Fortran-style floats and centering pass; truncated and nonfinite coordinates are rejected"
+  ],
+  "original_definition_ast_comparison": {
+    "Model_1.py": {"definitions": 12, "changed": ["MultimodalModel"]},
+    "random_3_seeds.py": {"definitions": 7, "changed": []},
+    "random_3_seeds_cmcr_with_gate_export.py": {"definitions": 18, "changed": []},
+    "Train_and_evaluation.py": {"definitions": 26, "changed": []},
+    "Graph_dataloader.py": {"definitions": 4, "changed": []},
+    "SMILES_dataloader_atom.py": {"definitions": 1, "changed": []}
+  },
+  "limitations": [
+    "The synthetic input check does not validate the historical full dataset, cleaned QM8 row mapping, or historical reported metrics.",
+    "The original model snapshot had concatenation active; selecting its existing gate is an explicit publication adaptation.",
+    "Full end-to-end training, plotting/Excel export, CUDA execution, and optional Optuna trials were not run during packaging.",
+    "Historical Bayesian optimization provenance and upstream source licensing have not been established."
+  ]
+}

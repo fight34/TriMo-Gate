@@ -1,0 +1,248 @@
+{
+  "dataset": "QM8",
+  "target": "E1-CC2",
+  "unit": "hartree",
+  "status": "local_preparation_verified; formal_GPU_training_not_started",
+  "fusion": "gate",
+  "training_conditions": [
+    "dft",
+    "mmff"
+  ],
+  "seeds": [
+    42,
+    2025,
+    3407
+  ],
+  "number_of_training_runs": 6,
+  "split_counts": {
+    "train": {
+      "original": 17398,
+      "eligible": 17356,
+      "excluded": 42
+    },
+    "val": {
+      "original": 2174,
+      "eligible": 2164,
+      "excluded": 10
+    },
+    "test": {
+      "original": 2175,
+      "eligible": 2169,
+      "excluded": 6
+    }
+  },
+  "split_rule": "Original structural-group split, filtered by shared MMFF success; no resplitting",
+  "point_features": [
+    "x",
+    "y",
+    "z",
+    "rho",
+    "C",
+    "F",
+    "H",
+    "N",
+    "O"
+  ],
+  "point_rule": "Angstrom coordinates centered over all real atoms; recomputed radius; unchanged element semantics and zero padding",
+  "low_cost_geometry": "Frozen single ETKDGv3 conformer and paired MMFF94 with bounded embedding/optimization retries; no DFT backfill or alignment",
+  "training": {
+    "epochs": 200,
+    "min_epochs": 50,
+    "patience": 30,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "grad_clip": 0.5,
+    "mixed_precision": false,
+    "cmcr": false,
+    "scaling": "Mean and population std fitted on matched training targets only"
+  },
+  "budget_limits": {
+    "queue_wall_hours": 12,
+    "each_training_run_minutes": 420
+  },
+  "evaluation_after_all_training": [
+    {
+      "label": "A_prime",
+      "train_geometry": "dft",
+      "test_geometry": "dft"
+    },
+    {
+      "label": "C_prime",
+      "train_geometry": "dft",
+      "test_geometry": "mmff"
+    },
+    {
+      "label": "D",
+      "train_geometry": "mmff",
+      "test_geometry": "mmff"
+    }
+  ],
+  "evaluation_note": "Queue finalizes each own condition. C_prime needs only frozen-checkpoint inference, not extra training.",
+  "reporting": "Per-seed MAE/RMSE and mean +/- sample SD in hartree; paired degradation and generation failures reported",
+  "interpretation": "Earlier A/B/C used the full original training cohort. Compare A_prime/C_prime/D to isolate matched-cohort coordinate and retraining effects.",
+  "data_validation": {
+    "status": "PASS",
+    "original_count": 21747,
+    "eligible_count": 21689,
+    "split_counts": {
+      "train": {
+        "original": 17398,
+        "eligible": 17356,
+        "excluded": 42
+      },
+      "val": {
+        "original": 2174,
+        "eligible": 2164,
+        "excluded": 10
+      },
+      "test": {
+        "original": 2175,
+        "eligible": 2169,
+        "excluded": 6
+      }
+    },
+    "baseline_retraining_required": true,
+    "test_coordinates_reused_exactly": true,
+    "only_cache_points_differ": true,
+    "structure_groups_cross_split": false,
+    "target_scaling_rule": "Recompute mean/std only on matched training IDs, identical for both conditions",
+    "hashes": {
+      "dft": {
+        "cache": "0c9a729d08b7d5279e8cca3f6a4c2f532cc447251fde784fa85216f6d31f3c64",
+        "metadata": "0d6926bb1e6898948f9384d85b4eb5ecd6bad38a58a6e9f228fdbf41872a800b",
+        "fixed_split": "02fc05a215ffb136b3c60c37df66b7a0ac9a1e7d8fe04183addbed2cd4eb3756"
+      },
+      "mmff": {
+        "cache": "8ad2638fa09ef2708cca7988fb36ee9e264b85032090dbdc9e61fcca667a9099",
+        "metadata": "26c46023d3fa4b9c812109d1d28124cf0ea4cf15753290be51854b740685f99c",
+        "fixed_split": "02fc05a215ffb136b3c60c37df66b7a0ac9a1e7d8fe04183addbed2cd4eb3756"
+      }
+    },
+    "provenance": {
+      "original_cache_sha256": "b2f3c426d5dd9ed66e214317d69af2f352f036e175f6066a864876c685708acc",
+      "original_metadata_sha256": "8d9ef07aa49395291c27125de663231636e914114ed08b05d1fd0017364983be",
+      "original_split_sha256": "cfab4567f2284792f56218515c414ab969f91d01fcff18e8f7542fc23003a15e",
+      "generation_protocol_sha256": "c6f3092c65597d9af5e17951fb24513bf8dd2b29718a6351b50b5966fc4ee87e",
+      "reused_test_protocol_sha256": "25d93ac0b7116fb0b39ad5d798ef4c27d2d0528c53dca41e1fe4fc819886f30b",
+      "generator_sha256": "dc082b3f0bc8b3816d0dfe27005c50c6e7127d7e0ae89ff0f24a14422b35bb0c",
+      "build_script_sha256": "97620eda5c44d6d106f9f2b7876714b188afda272e628fca81eeeee68c191b6e"
+    }
+  },
+  "code_validation": {
+    "status": "PASS",
+    "validated_utc": "2026-09-28T11:03:17.508197+00:00",
+    "formal_training_started": false,
+    "diagnostics_directory": "AUTHOR_WORKSPACE/work/qm8_geometry_D_v1/deploy/diagnostics",
+    "protocol_unit_tests": {
+      "status": "PASS",
+      "count": 8,
+      "test_file": "AUTHOR_WORKSPACE/work/qm8_geometry_D_v1/deploy/test_geometry_protocol.py",
+      "tests": [
+        "test_filtered_group_minimum_and_fixed_order_and_train_only_scaling",
+        "test_mask_and_split_coverage_reject_missing_duplicate_or_ineligible_ids",
+        "test_mask_length_and_dtype_and_count_are_checked",
+        "test_selected_nonfinite_or_ineligible_points_are_rejected",
+        "test_original_group_identity_and_cross_split_groups_are_checked",
+        "test_fixed_split_hash_is_checked",
+        "test_resume_config_rejects_geometry_or_fixed_split_changes",
+        "test_queue_interleaves_six_jobs_and_waits_before_finalizing"
+      ]
+    },
+    "py_compile": "PASS",
+    "queue_dry_run": "PASS",
+    "checks": {
+      "model_py_byte_identical_to_original": true,
+      "paired_diagnostic_split_ids_equal": true,
+      "paired_target_scaling_equal": true,
+      "paired_initialization_sha256_equal": true,
+      "paired_model_configuration_equal": true,
+      "both_smokes_finalized": true,
+      "test_artifacts_absent_after_both_smoke_training_runs": true,
+      "finalizations_follow_both_training_completions": true,
+      "dft_completed_resume_did_not_repeat_epoch": true,
+      "formal_runs_directory_absent": true,
+      "dft_diagnostic_split_preserves_fixed_order": true,
+      "dft_scaling_refit_only_on_diagnostic_train": true,
+      "dft_original_rows_retained": true,
+      "dft_single_epoch_single_train_batch": true,
+      "mmff_diagnostic_split_preserves_fixed_order": true,
+      "mmff_scaling_refit_only_on_diagnostic_train": true,
+      "mmff_original_rows_retained": true,
+      "mmff_single_epoch_single_train_batch": true,
+      "original_core_functions_unchanged": true,
+      "no_make_split_function": true
+    },
+    "smoke_paths": {
+      "dft": "AUTHOR_WORKSPACE/work/qm8_geometry_D_v1/deploy/diagnostics/smoke_dft",
+      "mmff": "AUTHOR_WORKSPACE/work/qm8_geometry_D_v1/deploy/diagnostics/smoke_mmff"
+    },
+    "smoke": {
+      "dft": {
+        "status": "PASS",
+        "device": "cpu",
+        "diagnostic": true,
+        "train_log": "AUTHOR_WORKSPACE/work/qm8_geometry_D_v1/deploy/diagnostics/smoke_dft_train.log",
+        "finalize_log": "AUTHOR_WORKSPACE/work/qm8_geometry_D_v1/deploy/diagnostics/smoke_dft_finalize.log",
+        "split_sizes": {
+          "train": 56,
+          "val": 3,
+          "test": 5
+        },
+        "epochs": 1,
+        "train_steps": 1,
+        "batch_size": 8
+      },
+      "mmff": {
+        "status": "PASS",
+        "device": "cpu",
+        "diagnostic": true,
+        "train_log": "AUTHOR_WORKSPACE/work/qm8_geometry_D_v1/deploy/diagnostics/smoke_mmff_train.log",
+        "finalize_log": "AUTHOR_WORKSPACE/work/qm8_geometry_D_v1/deploy/diagnostics/smoke_mmff_finalize.log",
+        "split_sizes": {
+          "train": 56,
+          "val": 3,
+          "test": 5
+        },
+        "epochs": 1,
+        "train_steps": 1,
+        "batch_size": 8
+      }
+    },
+    "paired_target_scaling": {
+      "mean": 0.2141418466071429,
+      "std": 0.04368385670620398,
+      "fit_split": "train",
+      "n_fit": 56,
+      "ddof": 0
+    },
+    "paired_initialization_sha256": {
+      "encoders": "fad39ab516281c8b6892b1e67786922a588549b1d6f75e71b86069e768e7ecc3",
+      "common_head": "75fc4c3aecedfb188bfa1d9a5dc1cc4b505f4dc12c3d6040b00abc3157b0cd25"
+    },
+    "source_sha256": {
+      "Model.py": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "data.py": "7c1505e69eb1062d926c7a4f54d5f2e9b9fc55a0c99d0fbc6e1c8bd0489b2f61",
+      "train_fusion.py": "625c35fc5f261de7abf7e34617d3d1e706f6c77d4d18fc95c0daed46639f9a2c",
+      "run_queue.py": "f0c86736ee146291182c1c4da80774de3f3e6e1d4322f8a94af26401441366a7",
+      "test_geometry_protocol.py": "a2d5ad5aba3e10aa1a1274774f4ad4c1f59ad06c9508fb3c268877e103fecacd"
+    },
+    "limitations": [
+      "CPU diagnostic smoke only; formal GPU training has not started.",
+      "Diagnostic metrics are not scientific experiment results.",
+      "Old ABC and new D use different training cohorts and are not a single-factor retraining comparison; planned C-prime inference on the new DFT checkpoint provides the matched comparison."
+    ]
+  },
+  "source_sha256": {
+    "Model.py": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+    "data.py": "7c1505e69eb1062d926c7a4f54d5f2e9b9fc55a0c99d0fbc6e1c8bd0489b2f61",
+    "train_fusion.py": "625c35fc5f261de7abf7e34617d3d1e706f6c77d4d18fc95c0daed46639f9a2c",
+    "run_queue.py": "f0c86736ee146291182c1c4da80774de3f3e6e1d4322f8a94af26401441366a7"
+  },
+  "preparation_sha256": {
+    "prepare_coordinates.py": "176a31f4e396a7ba656cec8afca1ab51650f0f8d92a4ddd6950d48bfd284a3aa",
+    "build_matched_data.py": "97620eda5c44d6d106f9f2b7876714b188afda272e628fca81eeeee68c191b6e",
+    "freeze_experiment.py": "807ad00bcec7bb0df55ee301fbc28dff152697d6c831e7a57a853b21b6c500e6",
+    "protocol.json": "c6f3092c65597d9af5e17951fb24513bf8dd2b29718a6351b50b5966fc4ee87e"
+  }
+}

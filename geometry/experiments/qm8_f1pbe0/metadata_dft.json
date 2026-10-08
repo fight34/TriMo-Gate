@@ -1,0 +1,134 @@
+{
+  "dataset": "QM8",
+  "sample_count": 21747,
+  "molecule_count": 21747,
+  "dims": {
+    "node_dim": 30,
+    "edge_dim": 13,
+    "vocab_size": 22,
+    "smiles_length": 58,
+    "point_dim": 9,
+    "max_atoms": 26
+  },
+  "atom_schema": {
+    "element": [
+      "C",
+      "F",
+      "N",
+      "O"
+    ],
+    "degree": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "total_h": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "formal_charge": [
+      -1,
+      0,
+      1
+    ],
+    "hybridization": [
+      "SP",
+      "SP2",
+      "SP3"
+    ],
+    "chirality": [
+      "CHI_UNSPECIFIED"
+    ],
+    "atom_ring_size": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "bond_schema": {
+    "bond_type": [
+      "AROMATIC",
+      "DOUBLE",
+      "SINGLE",
+      "TRIPLE"
+    ],
+    "stereo": [
+      "STEREONONE"
+    ],
+    "bond_ring_size": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "target_names": [
+    "E1-CC2",
+    "E2-CC2",
+    "f1-CC2",
+    "f2-CC2",
+    "E1-PBE0",
+    "E2-PBE0",
+    "f1-PBE0",
+    "f2-PBE0",
+    "E1-CAM",
+    "E2-CAM",
+    "f1-CAM",
+    "f2-CAM"
+  ],
+  "target_units": {
+    "E1-CC2": "hartree",
+    "E2-CC2": "hartree",
+    "f1-CC2": "dimensionless",
+    "f2-CC2": "dimensionless",
+    "E1-PBE0": "hartree",
+    "E2-PBE0": "hartree",
+    "f1-PBE0": "dimensionless",
+    "f2-PBE0": "dimensionless",
+    "E1-CAM": "hartree",
+    "E2-CAM": "hartree",
+    "f1-CAM": "dimensionless",
+    "f2-CAM": "dimensionless"
+  },
+  "point_features": [
+    "centered_x_angstrom",
+    "centered_y_angstrom",
+    "centered_z_angstrom",
+    "rho_angstrom",
+    "element_C",
+    "element_F",
+    "element_H",
+    "element_N",
+    "element_O"
+  ],
+  "point_coordinate_unit": "angstrom",
+  "preprocessing_version": "qm8-fixed-split-matched-geometry-v1",
+  "eligible_count": 21689,
+  "original_provenance": {
+    "original_cache_sha256": "b2f3c426d5dd9ed66e214317d69af2f352f036e175f6066a864876c685708acc",
+    "original_metadata_sha256": "8d9ef07aa49395291c27125de663231636e914114ed08b05d1fd0017364983be",
+    "original_split_sha256": "cfab4567f2284792f56218515c414ab969f91d01fcff18e8f7542fc23003a15e",
+    "generation_protocol_sha256": "c6f3092c65597d9af5e17951fb24513bf8dd2b29718a6351b50b5966fc4ee87e",
+    "reused_test_protocol_sha256": "25d93ac0b7116fb0b39ad5d798ef4c27d2d0528c53dca41e1fe4fc819886f30b",
+    "generator_sha256": "dc082b3f0bc8b3816d0dfe27005c50c6e7127d7e0ae89ff0f24a14422b35bb0c",
+    "build_script_sha256": "97620eda5c44d6d106f9f2b7876714b188afda272e628fca81eeeee68c191b6e"
+  },
+  "eligibility_policy": "Converged valid MMFF; identical selection for DFT and MMFF",
+  "split_policy": "Filter original IDs in original split order; no shuffle or group reassignment",
+  "geometry_condition": "dft",
+  "cache_sha256": "0c9a729d08b7d5279e8cca3f6a4c2f532cc447251fde784fa85216f6d31f3c64",
+  "fixed_split_sha256": "02fc05a215ffb136b3c60c37df66b7a0ac9a1e7d8fe04183addbed2cd4eb3756",
+  "coordinate_source_method": "Original author DFT"
+}

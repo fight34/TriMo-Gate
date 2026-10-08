@@ -1,0 +1,486 @@
+{
+  "dataset": "QM9",
+  "target": "dipole_moment",
+  "unit": "Debye",
+  "status": "local_preparation_verified; formal_GPU_training_not_started",
+  "fusion": "gate",
+  "training_conditions": [
+    "dft",
+    "mmff"
+  ],
+  "seeds": [
+    42,
+    2025,
+    3407
+  ],
+  "number_of_training_runs": 6,
+  "split_counts": {
+    "train": {
+      "original": 107108,
+      "eligible": 105992,
+      "excluded": 1116
+    },
+    "val": {
+      "original": 13388,
+      "eligible": 13251,
+      "excluded": 137
+    },
+    "test": {
+      "original": 13389,
+      "eligible": 13243,
+      "excluded": 146
+    }
+  },
+  "split_rule": "Filter original fixed random ID split; no grouping or reshuffle; no target-based selection",
+  "geometry_generation": {
+    "version": "qm9-geometry-v1",
+    "dataset": "QM9",
+    "target": "dipole_moment",
+    "unit": "Debye",
+    "count": 133885,
+    "workers": 4,
+    "source_sha256": {
+      "cache_sha256": "c42e44ec05788afb284438e6e346be6fc1b5805838dfe97e79f9ae4d1495b5cc",
+      "metadata_sha256": "ebcae50668e2cc0522ee0304d968827d55e72560e81340629cbf4b4170395b54",
+      "split_ids_sha256": "2cfe273d1cc481721266daf6dec1ff9de77e5a6a655547a548f3f025c1a63009"
+    },
+    "protected_sha256": {
+      "work\\trimo_pilot\\qm9_cache\\cache.npz": "c42e44ec05788afb284438e6e346be6fc1b5805838dfe97e79f9ae4d1495b5cc",
+      "work\\trimo_pilot\\qm9_cache\\metadata.json": "ebcae50668e2cc0522ee0304d968827d55e72560e81340629cbf4b4170395b54",
+      "work\\trimo_pilot\\qm9_cache\\manifest.csv": "c134319cc09105093a866965d30c2573239db3d3b44dc4627a5afa90c26f81e6",
+      "work\\fusion_ablation\\final_backup\\runs\\gate\\seed_42\\split_ids.json": "2cfe273d1cc481721266daf6dec1ff9de77e5a6a655547a548f3f025c1a63009",
+      "work\\qm9_geometry_v1\\generate_coordinates.py": "95d57415bc6c8f4bbf2b0b5a3cc5ec213852c324de19a8ce048c423f4ee3f3bf",
+      "work\\qm8_test_geometry_v1\\generate_coordinates.py": "dc082b3f0bc8b3816d0dfe27005c50c6e7127d7e0ae89ff0f24a14422b35bb0c",
+      "work\\geometry_pilot_v1\\run_geometry_pilot.py": "a86c05684266c17fc8dfe4bbcecfa3ac254f8bb549593f40c93481b0b69f28cf",
+      "work\\geometry_pilot_v1\\prepare_selection.py": "1fd84293a8bd326398c5e951c7158addaadb5aea8a9f96bbc83ca4046eef19d0",
+      "work\\trimo_pilot\\prepare_data.py": "6fe80eb3b9b4eeee4da09698efb46a2ef87c698219c41bc6d5af77bced7878eb"
+    },
+    "script_sha256": "5eef5dd29a637bd4e1b8b512b372d994cca2821d656817b902ce410fe7025c96",
+    "environment": {
+      "python": "3.11.4",
+      "numpy": "2.1.2",
+      "rdkit": "2026.03.3",
+      "CPU_only": true
+    },
+    "features": [
+      "centered_x_angstrom",
+      "centered_y_angstrom",
+      "centered_z_angstrom",
+      "rho_angstrom",
+      "element_C",
+      "element_F",
+      "element_H",
+      "element_N",
+      "element_O"
+    ],
+    "max_atoms": 29,
+    "embedding": {
+      "method": "ETKDGv3",
+      "conformers": 1,
+      "threads_per_molecule": 1,
+      "maxIterations": 1000,
+      "enforceChirality": true,
+      "seed": "SHA256 geometry-pilot-v1|20260928|QM9|ID first4 bytes big endian mod2147483647",
+      "fallback": "one useRandomCoords=True retry with seed+1 only after embedding failure"
+    },
+    "mmff": {
+      "variant": "MMFF94",
+      "iterations": [
+        300,
+        700
+      ],
+      "second_pass_only_if_code1": true,
+      "forceTol": 0.0001,
+      "energyTol": 1e-06,
+      "nonBondedThresh": 100.0
+    },
+    "coordinates": "float32 before centering; recompute rho; real lengths; zero padding; no alignment to DFT",
+    "eligibility": "Input composition matches DFT; valid ETKDG; MMFF code0 with valid features",
+    "identity_policy": "Original input and graph match XYZ first SMILES; relaxed second SMILES audited only, never used to generate or filter",
+    "failure_policy": "Unavailable points NaN with masks; retain ID and failure reason; no DFT/UFF backfill",
+    "split_policy": "Filter original fixed random ID split; no grouping or reshuffle; no target-based selection",
+    "official_qm9_filtering_applied": false,
+    "comparison": {
+      "Aprime": "matched DFT train / DFT test",
+      "Cprime": "same Aprime model / matched MMFF test",
+      "D": "matched MMFF train / MMFF test"
+    },
+    "seeds": [
+      42,
+      2025,
+      3407
+    ]
+  },
+  "training_reference": {
+    "split_seed": 20260927,
+    "max_epochs": 200,
+    "min_epochs": 50,
+    "early_stopping_patience": 30,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "grad_clip": 0.5,
+    "optimizer": "AdamW",
+    "scheduler": "ReduceLROnPlateau",
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 10,
+    "scheduler_min_lr": 1e-06,
+    "scheduler_threshold": 0.0,
+    "scheduler_threshold_mode": "abs",
+    "loss": "sample-mean L1 on train-standardized target",
+    "cmcr": false,
+    "mixed_precision": false,
+    "num_workers": 0,
+    "split_strategy": "sorted IDs; numpy.default_rng(split_seed) shuffle; 80/10/10; cache row order within splits",
+    "official_qm9_filtering_applied": false,
+    "model_common": {
+      "vocab_size": 21,
+      "smiles_length": 22,
+      "d_smiles": 256,
+      "smiles_num_heads": 8,
+      "smiles_num_layers": 6,
+      "cnn_kernels": 256,
+      "d_node": 31,
+      "d_edge": 14,
+      "d_hidden": 256,
+      "graph_num_layers": 6,
+      "d_point_input": 9,
+      "d_point_cloud": 1024,
+      "d_point_output": 256,
+      "d_output": 1,
+      "use_smiles": true,
+      "use_graph": true,
+      "use_point_cloud": true,
+      "dropout": 0.1,
+      "fusion_hidden_dim": null,
+      "fusion_attention_heads": 4
+    },
+    "target_scaling": {
+      "mean": 2.707038541472159,
+      "std": 1.5291205848719713,
+      "fit_split": "train",
+      "n_fit": 107108,
+      "ddof": 0
+    },
+    "cpu_threads": 4,
+    "max_minutes": 420.0,
+    "diagnostic_subset": 0,
+    "diagnostic_max_steps": 0,
+    "training_rng_offset": 1729,
+    "early_stopping_min_delta": 0.0
+  },
+  "training_scaling_override": {
+    "mean": 2.7142565712506608,
+    "std": 1.5311064013867155,
+    "n_fit": 105992,
+    "ddof": 0,
+    "fit_split": "train"
+  },
+  "scaling_note": "Recompute mean and population std on matched training targets; all other original training hyperparameters retained",
+  "budget_limits": {
+    "queue_wall_hours": 36,
+    "each_training_run_minutes": 420
+  },
+  "evaluation_after_all_training": [
+    {
+      "label": "A_prime",
+      "train_geometry": "dft",
+      "test_geometry": "dft"
+    },
+    {
+      "label": "C_prime",
+      "train_geometry": "dft",
+      "test_geometry": "mmff"
+    },
+    {
+      "label": "D",
+      "train_geometry": "mmff",
+      "test_geometry": "mmff"
+    }
+  ],
+  "reporting": "Three seeds, per-seed MAE/RMSE, mean +/- sample SD in Debye; paired percentage changes; coverage and identity subsets",
+  "known_limitations": [
+    "Original random split retained; no structural-group split claim",
+    "Official QM9 geometry exclusion list not applied; controlled internal comparison",
+    "Unspecified stereochemistry and differing relaxed SMILES may confound coordinate-only interpretation; report fixed identity subsets"
+  ],
+  "generation_exception_review": {
+    "status": "PASS",
+    "resolved_errors": [
+      {
+        "id": 6350,
+        "error": "AssertionError: "
+      }
+    ],
+    "generation_summary_sha256": "6ff0f5768ebb2e54163fa418f9f60f2d4636b01346773b1daf904a8ff06270ae",
+    "action": "Keep original unavailable mask; exclude from both matched conditions; do not regenerate or relax thresholds",
+    "classification": "MMFF reported convergence but violated the frozen non-increasing energy check",
+    "energy_increase_kcal_mol": 3.13325363237027e-05,
+    "reproduced_failing_line": 64,
+    "repeated": {
+      "id": 6350,
+      "input_index": 6349,
+      "input_smiles": "CNC(=O)NC(C)=O",
+      "etkdg_available": true,
+      "mmff_available": false,
+      "mmff_status": "not_attempted",
+      "embedding_attempts": [
+        {
+          "attempt": 1,
+          "seed": 394428330,
+          "useRandomCoords": false,
+          "code": 0,
+          "failure_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "wall_s": 0.02409849999821745
+        }
+      ],
+      "mmff_codes": [
+        0
+      ],
+      "error": "AssertionError: ",
+      "length": 16,
+      "mmff_energy_before_kcal_mol": 32.31970267905666,
+      "mmff_wall_s": 0.012279999995371327,
+      "mmff_energy_after_kcal_mol": 32.319734011592985,
+      "pipeline_wall_s": 0.051564900000812486
+    },
+    "frozen_coordinates_changed": false,
+    "eligibility_changed": false
+  },
+  "data_validation": {
+    "status": "PASS",
+    "original_count": 133885,
+    "eligible_count": 132486,
+    "split_counts": {
+      "train": {
+        "original": 107108,
+        "eligible": 105992,
+        "excluded": 1116
+      },
+      "val": {
+        "original": 13388,
+        "eligible": 13251,
+        "excluded": 137
+      },
+      "test": {
+        "original": 13389,
+        "eligible": 13243,
+        "excluded": 146
+      }
+    },
+    "feature_checks": {
+      "etkdg": {
+        "available": 132487,
+        "max_center_residual": 3.764504015180137e-07
+      },
+      "mmff": {
+        "available": 132486,
+        "max_center_residual": 3.5762786865234375e-07
+      },
+      "mmff_not_converged": {
+        "available": 0,
+        "max_center_residual": 0.0
+      }
+    },
+    "matched_identity_categories": {
+      "train": {
+        "identical": 25891,
+        "stereo_only": 69084,
+        "nonstereo_difference": 10428,
+        "relaxed_parse_failure": 589
+      },
+      "test": {
+        "identical": 3127,
+        "stereo_only": 8768,
+        "nonstereo_difference": 1279,
+        "relaxed_parse_failure": 69
+      },
+      "val": {
+        "identical": 3117,
+        "stereo_only": 8825,
+        "nonstereo_difference": 1222,
+        "relaxed_parse_failure": 87
+      }
+    },
+    "baseline_retraining_required": true,
+    "only_cache_points_differ": true,
+    "split_strategy": "Original fixed random IDs filtered only; not grouped",
+    "cross_split_nonstereo_structure_count": 25,
+    "hashes": {
+      "dft": {
+        "cache": "744e016fd8f185a0bfe24dc361638817af69a8309ebd1d3b02d625370647d56a",
+        "metadata": "f8096422b6b7017089acb8464ebe2e063a917fd3f45b198a072e9f55ab4795ea",
+        "fixed_split": "8478254b30507322f5f570ca0757f6c9cc0e28b8ee526e584a27ee9a4ddaffa1"
+      },
+      "mmff": {
+        "cache": "b7ccf308f76a9f9f9faeb4bfd593af775162b02c5230191d3e7cf33c6c6395b5",
+        "metadata": "b9816e5c70b9145a2e0d91498bc422664e1d604db34c51d454ab8f6e2036be02",
+        "fixed_split": "8478254b30507322f5f570ca0757f6c9cc0e28b8ee526e584a27ee9a4ddaffa1"
+      }
+    },
+    "provenance": {
+      "original_cache_sha256": "c42e44ec05788afb284438e6e346be6fc1b5805838dfe97e79f9ae4d1495b5cc",
+      "original_metadata_sha256": "ebcae50668e2cc0522ee0304d968827d55e72560e81340629cbf4b4170395b54",
+      "original_split_sha256": "2cfe273d1cc481721266daf6dec1ff9de77e5a6a655547a548f3f025c1a63009",
+      "generation_protocol_sha256": "9a2310777e85cddc423d3c2fbbc35e0d4fe70043ca2c94ed1e25732fd3a859a9",
+      "generation_manifest_sha256": "1a510bac615aac27f274512f1c8060c341ca89d25f870f3dc4a599cb8190ab15",
+      "availability_sha256": "e14d0c2dfc6e91cbb1e45b2bddae007b33aa760c09a2b73eea000badf0ea5fbc",
+      "build_script_sha256": "0fac69c32a0b1a21b25f658e29a86be61bed5ba222b1c6a300865db952b8effe"
+    },
+    "target_scaling": {
+      "mean": 2.7142565712506608,
+      "std": 1.5311064013867155,
+      "n_fit": 105992,
+      "ddof": 0,
+      "fit_split": "train"
+    },
+    "unit": "Debye",
+    "official_qm9_filtering_applied": false
+  },
+  "code_validation": {
+    "status": "PASS",
+    "dataset": "QM9",
+    "target": "dipole_moment",
+    "unit": "Debye",
+    "original_rows": 133885,
+    "original_split": {
+      "strategy": "ungrouped sorted-ID random 80/10/10 split; retained after eligible filtering",
+      "split_seed": 20260927,
+      "sizes": {
+        "train": 107108,
+        "val": 13388,
+        "test": 13389
+      },
+      "sha256": "2cfe273d1cc481721266daf6dec1ff9de77e5a6a655547a548f3f025c1a63009",
+      "three_seed_configs_identical": true,
+      "group_ids_in_original_cache": false
+    },
+    "checks": {
+      "syntax_compile": "PASS",
+      "seven_regression_tests": "PASS",
+      "formal_qm9_hyperparameters_vs_original_config": "PASS",
+      "Model_py_byte_identity": "PASS",
+      "six_gate_jobs_dry_run": "PASS",
+      "fixed_split_subset_and_train_only_scaling": "PASS",
+      "source_metadata_fixed_split_provenance_tamper_rejected": "PASS",
+      "queue_all_training_completion_barrier": "PASS",
+      "queue_training_failure_blocks_finalize": "PASS",
+      "model_self_test": "PASS",
+      "real_cache_tiny_cpu_smoke": "PASS",
+      "smoke_runner_fixture_integration": "PASS",
+      "smoke_runner_syntax_compile": "PASS"
+    },
+    "source_sha256": {
+      "Model.py": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+      "data.py": "23edfd0b88f95e44c710b9205e067662ce9f5c8f81b7b8f76784ee9405f6cbb3",
+      "train_fusion.py": "61b500b471ed851357111dc3e696690bdfa1082bcc7871bdba50e307af58173b",
+      "run_queue.py": "844ffadf90d562ccda677895a4116d19f2a20d0265726df3c911d6b4521ea165",
+      "run_real_cache_smoke.py": "3a1de8abebbf6e42ee5df06c33b21fcbbc59fe27e50db915361701fb003d50e3"
+    },
+    "formal_training_started": false,
+    "server_contacted": false,
+    "notes": [
+      "PASS entries reflect observed successful checks only.",
+      "Formal training was not started. Diagnostic model self-test and tiny CPU smoke are separate."
+    ],
+    "model_self_test_details": "CPU forward/backward, optimizer/scheduler/RNG checkpoint reload verified for all six original fusion classes; deployment remains gate only.",
+    "smoke_runner_fixture_details": "Two synthetic cache conditions; actual tiny CPU train, completed-checkpoint resume, paired initialization and train-only scaling, held-out IDs/labels, finite predictions, checkpoint reload, and idempotent finalize passed. This is not the pending real-cache smoke.",
+    "real_cache_smoke_entrypoint": "python run_real_cache_smoke.py --data data --output diagnostic_smoke",
+    "real_cache_smoke": {
+      "diagnostic": true,
+      "formal_training_started": false,
+      "device": "cpu",
+      "seed": 42,
+      "subset": 64,
+      "epochs": 1,
+      "max_train_steps": 1,
+      "runs": {
+        "dft": {
+          "cache_sha256": "744e016fd8f185a0bfe24dc361638817af69a8309ebd1d3b02d625370647d56a",
+          "fixed_split_sha256": "8478254b30507322f5f570ca0757f6c9cc0e28b8ee526e584a27ee9a4ddaffa1",
+          "eligible_count": 132486,
+          "split_sizes": {
+            "train": 54,
+            "val": 6,
+            "test": 4
+          },
+          "target_scaling": {
+            "mean": 2.539785185185185,
+            "std": 1.4513927069475447,
+            "fit_split": "train",
+            "n_fit": 54,
+            "ddof": 0
+          },
+          "status": "PASS",
+          "initialization_sha256": {
+            "encoders": "020107995d72a2d4a3a71cc00bdaf927d501138502047aca59ffee0216e98252",
+            "common_head": "9fae98ffa13aa46b430afdffe0d690bd29e08e949983cef6be362e21f00969be"
+          },
+          "resumed_completed_checkpoint_unchanged": true,
+          "repeated_finalization_unchanged": true,
+          "checkpoint_reload_max_normalized_difference": 0.0,
+          "validation_n": 6,
+          "test_n": 4
+        },
+        "mmff": {
+          "cache_sha256": "b7ccf308f76a9f9f9faeb4bfd593af775162b02c5230191d3e7cf33c6c6395b5",
+          "fixed_split_sha256": "8478254b30507322f5f570ca0757f6c9cc0e28b8ee526e584a27ee9a4ddaffa1",
+          "eligible_count": 132486,
+          "split_sizes": {
+            "train": 54,
+            "val": 6,
+            "test": 4
+          },
+          "target_scaling": {
+            "mean": 2.539785185185185,
+            "std": 1.4513927069475447,
+            "fit_split": "train",
+            "n_fit": 54,
+            "ddof": 0
+          },
+          "status": "PASS",
+          "initialization_sha256": {
+            "encoders": "020107995d72a2d4a3a71cc00bdaf927d501138502047aca59ffee0216e98252",
+            "common_head": "9fae98ffa13aa46b430afdffe0d690bd29e08e949983cef6be362e21f00969be"
+          },
+          "resumed_completed_checkpoint_unchanged": true,
+          "repeated_finalization_unchanged": true,
+          "checkpoint_reload_max_normalized_difference": 0.0,
+          "validation_n": 6,
+          "test_n": 4
+        }
+      },
+      "status": "PASS",
+      "completed_utc": "2026-09-28T14:56:07.454841+00:00"
+    }
+  },
+  "source_sha256": {
+    "Model.py": "86b34ebe6cbef4f7a24b06db6e179e3062f3bf4e30031b09f3b3ea548e048b78",
+    "data.py": "23edfd0b88f95e44c710b9205e067662ce9f5c8f81b7b8f76784ee9405f6cbb3",
+    "train_fusion.py": "61b500b471ed851357111dc3e696690bdfa1082bcc7871bdba50e307af58173b",
+    "run_queue.py": "844ffadf90d562ccda677895a4116d19f2a20d0265726df3c911d6b4521ea165",
+    "cross_infer.py": "5584dd1cfec079f716e60d6d189eea13c4f15f149e286491bb065c6b70ea972a",
+    "summarize_geometry.py": "b00f20fb171db692ddfba7db2d06f9c605ec3c115ca509edfc84e9c318213e5a",
+    "status_snapshot.py": "c9c37d050c8d28812e0f62a0df54b3e2dfd2b87c4b7f355f8a0e5a468a44632b"
+  },
+  "preparation_sha256": {
+    "prepare_coordinates.py": "5eef5dd29a637bd4e1b8b512b372d994cca2821d656817b902ce410fe7025c96",
+    "generate_coordinates.py": "95d57415bc6c8f4bbf2b0b5a3cc5ec213852c324de19a8ce048c423f4ee3f3bf",
+    "build_matched_data.py": "0fac69c32a0b1a21b25f658e29a86be61bed5ba222b1c6a300865db952b8effe",
+    "freeze_experiment.py": "2ab4c7736ef02cdad89600546790d9a77748c36e858d17980afab354a2ed0c94",
+    "protocol.json": "9a2310777e85cddc423d3c2fbbc35e0d4fe70043ca2c94ed1e25732fd3a859a9"
+  }
+}
