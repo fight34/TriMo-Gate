@@ -8,11 +8,13 @@ TriMo-Gate combines SMILES, molecular graph, and molecular point-cloud represent
 
 | Directory | Purpose | Protocol |
 | --- | --- | --- |
-| `benchmark/` | Original modality ablations and CMCR, including gate and alignment exports | Historical seeds 42, 44, 46; see [benchmark guide](docs/benchmark.md) |
+| `benchmark/` | Original modality ablations and CMCR, plus six fusion choices on the benchmark backbone | Historical seeds 42, 44, 46; see [benchmark guide](docs/benchmark.md) |
 | `fusion/` | Six fusion implementations and archived controlled comparisons | Seeds 42, 2025, 3407; see [fusion guide](docs/fusion.md) |
 | `geometry/` | Conformer generation and A/B/C/D evaluation for eight QM9 and twelve QM8 targets | Seeds 42, 2025, 3407; see [geometry guide](docs/geometry.md) |
 
 These experiment families have different data and evaluation protocols. Their scores must not be substituted for one another. The guides describe the available source snapshots, publication adaptations, required inputs, and verification limits.
+
+`benchmark/run.py --fusion` selects `concat`, `mean`, `weighted`, `attention`, `gate_no_interaction`, or `gate` (the unchanged default). These new benchmark options are separate from the archived controlled comparisons in `fusion/`; see the [fusion choices and examples](docs/benchmark.md#fusion-choices).
 
 ## Getting started
 

@@ -11,6 +11,18 @@ Checks performed on 2026-10-08 during preparation of this code release:
 
 The model and original scientific function definitions were compared with their source snapshots. Portable paths, explicit input validation and the documented benchmark default-fusion selection are release adaptations. File-level provenance and component validation records provide the detailed scope.
 
+On 2026-10-09, the benchmark was migrated to the supplied six-fusion `Model.py`.
+Eight benchmark release checks and four fusion checks passed on CPU. These
+cover CLI selection and output isolation, all 42 fusion/modality combinations,
+forward/backward computation, strict checkpoint reload, encoder initialization,
+missing-modality gates, and scalar-weight/mean equivalence. The eight original
+encoder definitions are unchanged. A separate comparison against the previous
+published gate model verified strict checkpoint loading and exactly equal
+evaluation predictions and gates on seven synthetic modality combinations.
+Layer initialization order changed, so this does not claim identical new
+training trajectories from a seed alone. Fusion and geometry archives were
+unchanged; their checks above remain dated 2026-10-08.
+
 The local CPU checks used Python 3.11.4, PyTorch 2.6.0+cu124, PyG 2.5.3, torch-scatter 2.1.2+pt26cu124, NumPy 2.1.2 and RDKit 2026.03.3. This is the **packaging-test environment**, not a replacement claim about the historical server environment. Historical stacks are recorded separately.
 
 These checks did not rerun formal training, the full geometry-generation population, the optional Bayesian search, or all manuscript figures and Excel exports. They do not establish full numerical reproduction, historical table provenance, or license ownership. Test-generated caches, logs and checkpoints are excluded from the repository.

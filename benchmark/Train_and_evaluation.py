@@ -27,7 +27,7 @@ import matplotlib
 import numpy as np
 import pandas as pd
 import torch
-from Model_1 import MultimodalModel
+from Model import MultimodalModel
 from Graph_dataloader import edge_dim, graphs, node_dim, valid_smiles, y
 from data_config import get_config
 if get_config()["dataset"] == "qm8":
@@ -403,6 +403,7 @@ def make_model(config: Dict[str, Any]) -> MultimodalModel:
         use_smiles=MODALITY_FLAGS["use_smiles"],
         use_graph=MODALITY_FLAGS["use_graph"],
         use_point_cloud=MODALITY_FLAGS["use_point_cloud"],
+        fusion_type=get_config()["fusion"],
     )
 
 

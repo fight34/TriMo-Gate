@@ -8,7 +8,7 @@ import matplotlib
 import numpy as np
 import pandas as pd
 import torch.nn.functional as F  # noqa
-from Model_1 import MultimodalModel
+from Model import MultimodalModel
 from torch_geometric.data import Batch
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from Graph_dataloader import graphs, y, node_dim, edge_dim, valid_smiles
@@ -335,7 +335,8 @@ for seed_idx, seed in enumerate(SEEDS):
         d_output=1,
         use_smiles=MODALITY_FLAGS["use_smiles"],
         use_graph=MODALITY_FLAGS["use_graph"],
-        use_point_cloud=MODALITY_FLAGS["use_point_cloud"]
+        use_point_cloud=MODALITY_FLAGS["use_point_cloud"],
+        fusion_type=get_config()["fusion"]
     ).to(device)
 
     if seed_idx == 0:

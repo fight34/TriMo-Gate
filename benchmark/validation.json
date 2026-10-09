@@ -1,10 +1,9 @@
 {
-  "date": "2026-10-08",
-  "scope": "Local CPU release validation; no full benchmark or Bayesian optimization run",
+  "date": "2026-10-09",
+  "scope": "Local CPU benchmark migration and release validation; no full benchmark or Bayesian optimization run",
   "status": "passed",
-  "command": "python -B benchmark/test_release.py",
-  "tests_passed": 6,
-  "elapsed_test_seconds": 28.791,
+  "tests_passed": 12,
+  "elapsed_test_seconds": 78.809,
   "local_cpu_validation_environment": {
     "python": "3.11.4",
     "torch": "2.6.0+cu124",
@@ -16,25 +15,79 @@
     "SmilesPE": "0.0.3"
   },
   "checks": [
-    "All 11 published benchmark Python sources compile",
+    "All 12 published benchmark Python sources compile",
     "Both QM8 and QM9 CLI input checks pass on synthetic SMILES/label/XYZ fixtures with nine point features",
     "Row/SMILES mismatches, reordered map rows, duplicate XYZ files, missing files, and path escapes are rejected",
     "All seven nonempty modality combinations complete CPU forward and backward with finite outputs/gradients; multi-branch models select GatedFusion and absent branches receive zero gate weight",
     "Seeded random splits are disjoint and sorted; full-pool retrieval and first-index tie handling pass",
-    "XYZ Fortran-style floats and centering pass; truncated and nonfinite coordinates are rejected"
+    "XYZ Fortran-style floats and centering pass; truncated and nonfinite coordinates are rejected",
+    "All six fusion choices across all seven nonempty modality combinations (42 cases) pass CPU forward/backward and strict state-dict reload with identical evaluation outputs",
+    "Six fusion choices preserve identically seeded encoder weights and the original five SMILES CNN kernels",
+    "Both feature gates export detached, normalized per-channel weights with zero weight for missing modalities; zero scalar logits exactly reproduce mean fusion",
+    "CLI fusion choices reach the run configuration and selected training script; non-default fusion output directories are isolated; invalid single-modality and CMCR combinations fail before data loading"
   ],
   "original_definition_ast_comparison": {
-    "Model_1.py": {"definitions": 12, "changed": ["MultimodalModel"]},
-    "random_3_seeds.py": {"definitions": 7, "changed": []},
-    "random_3_seeds_cmcr_with_gate_export.py": {"definitions": 18, "changed": []},
-    "Train_and_evaluation.py": {"definitions": 26, "changed": []},
-    "Graph_dataloader.py": {"definitions": 4, "changed": []},
-    "SMILES_dataloader_atom.py": {"definitions": 1, "changed": []}
+    "Model.py": {
+      "definitions": 16,
+      "changed": [
+        "MultimodalModel"
+      ]
+    },
+    "random_3_seeds.py": {
+      "definitions": 7,
+      "changed": []
+    },
+    "random_3_seeds_cmcr_with_gate_export.py": {
+      "definitions": 18,
+      "changed": []
+    },
+    "Train_and_evaluation.py": {
+      "definitions": 26,
+      "changed": [
+        "make_model"
+      ]
+    },
+    "Graph_dataloader.py": {
+      "definitions": 4,
+      "changed": []
+    },
+    "SMILES_dataloader_atom.py": {
+      "definitions": 1,
+      "changed": []
+    }
   },
   "limitations": [
     "The synthetic input check does not validate the historical full dataset, cleaned QM8 row mapping, or historical reported metrics.",
-    "The original model snapshot had concatenation active; selecting its existing gate is an explicit publication adaptation.",
+    "The supplied Model_1.py and new Model.py default to concatenation; gate is an explicit publication default. The new gate initializes layers in a different order, so a fixed seed alone does not reproduce the previous initial weights or training trajectory.",
     "Full end-to-end training, plotting/Excel export, CUDA execution, and optional Optuna trials were not run during packaging.",
     "Historical Bayesian optimization provenance and upstream source licensing have not been established."
-  ]
+  ],
+  "previous_validation": {
+    "date": "2026-10-08",
+    "tests_passed": 6,
+    "elapsed_test_seconds": 28.791,
+    "commit": "e2e6e620b46f72b8679c83c929547f3c7e63649a",
+    "scope": "Initial Model_1.py benchmark release"
+  },
+  "commands": [
+    "python -B benchmark/test_release.py",
+    "python -B benchmark/test_fusion.py"
+  ],
+  "test_suites": {
+    "test_release.py": {
+      "tests_passed": 8,
+      "seconds": 71.996
+    },
+    "test_fusion.py": {
+      "tests_passed": 4,
+      "seconds": 6.813
+    }
+  },
+  "ast_comparison_scope": "Compared with the supplied same-named source files. This compares top-level function/class definitions, not module-level training statements; CLI wiring and model-construction changes are also present. All eight encoder definitions remain unchanged from the original Model_1.py.",
+  "previous_gate_checkpoint_check": {
+    "status": "passed",
+    "reference_commit": "e2e6e620b46f72b8679c83c929547f3c7e63649a",
+    "reference_file": "benchmark/Model_1.py",
+    "scope": "Strict state-dict load and exactly equal eval predictions on all seven nonempty synthetic modality combinations; feature gate weights also exactly equal for every multi-branch case."
+  }
 }

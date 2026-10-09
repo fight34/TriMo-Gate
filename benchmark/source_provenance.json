@@ -39,7 +39,20 @@
       "sha256": "fa49de8546e4325701aa7d6909b19bae8354c97f20d6a3d47cd6e60051b894e2",
       "source": "TriMo-Gate/Train_and_evaluation.py",
       "bytes": 41849
+    },
+    {
+      "sha256": "7c91524e987bab2393f95a93d4dd857e6b0d768f95d6312187b9eafa8f24c3a7",
+      "source": "TriMo-Gate/Model.py",
+      "bytes": 33972
     }
   ],
-  "note": "Hashes of the provided source files before publication adaptations; not proof of historical run provenance."
+  "note": "Hashes of the provided source files before publication adaptations; not proof of historical run provenance.",
+  "model_migration": {
+    "date": "2026-10-09",
+    "published_file": "benchmark/Model.py",
+    "published_sha256": "f20216dd869e73cced15f909d981199ca39f856b6fa6f8ce5b4ec0e7d7e38662",
+    "adaptation": "Default fusion_type changed from concat to gate to retain the published benchmark default; the supplied six-fusion implementation is otherwise unchanged.",
+    "previous_file": "benchmark/Model_1.py",
+    "encoders": "All eight encoder class definitions are unchanged from the original Model_1.py."
+  }
 }

@@ -22,6 +22,9 @@ def main():
     parser.add_argument("--xyz-map", type=Path, required=True, help="CSV with row_index,smiles,xyz_file")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--modalities", nargs="+", choices=["S", "G", "P"], default=["S", "G", "P"])
+    parser.add_argument("--fusion", choices=["concat", "mean", "weighted", "attention",
+                                            "gate_no_interaction", "gate"], default="gate",
+                        help="Fusion for multi-branch runs (default: gate)")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--cmcr", action="store_true", help="Full three-branch CMCR and gate/alignment export")
     group.add_argument("--bayes-opt", action="store_true", help="Optional 15-trial-per-seed Optuna implementation")
@@ -32,8 +35,14 @@ def main():
         parser.error("Do not repeat modality names.")
     if args.cmcr and modalities != ["S", "G", "P"]:
         parser.error("The historical CMCR export entry point requires all three modalities.")
+    if args.cmcr and args.fusion != "gate":
+        parser.error("The historical CMCR gate-export protocol requires --fusion gate.")
+    if len(modalities) == 1 and args.fusion != "gate":
+        parser.error("Single-modality runs bypass fusion; omit --fusion.")
     tokens = {"S": "1D", "G": "2D", "P": "3D"}
     suffix = "+CMCR" if args.cmcr else "_BayesianOptimization" if args.bayes_opt else ""
+    if args.fusion != "gate":
+        suffix += "_fusion_" + args.fusion
     result_dir = args.output.resolve() / ("RandomSplit_3_Seeds_" + "+".join(tokens[m] for m in modalities) + suffix + "_Results")
     config = vars(args).copy()
     config.update(modalities=modalities, result_dir=str(result_dir))

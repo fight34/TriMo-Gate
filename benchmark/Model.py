@@ -449,275 +449,322 @@ class PointNet(nn.Module):
         return output
 
 
-class ConcatFusion(nn.Module):
+class FusionBase(nn.Module):
     """
-    Simple concatenation-based fusion of multimodal fingerprints.
+    Common normalization and prediction head for fusion ablations.
+
+    Inputs are three (batch, d_model) tensors in SMILES/Graph/Point order.
+    None disables a complete branch for the whole batch; per-sample missing
+    modalities are not supported. All branch output dimensions must be equal.
     """
     def __init__(self, d_smiles, d_graph, d_point_output, d_output, dropout=0.1):
         super().__init__()
-        self.d_smiles = d_smiles
-        self.d_graph = d_graph
-        self.d_point = d_point_output
+        dimensions = (d_smiles, d_graph, d_point_output, d_output)
+        if any(isinstance(dim, bool) or not isinstance(dim, int) or dim <= 0
+               for dim in dimensions):
+            raise ValueError("Feature and output dimensions must be positive integers.")
+        if not d_smiles == d_graph == d_point_output:
+            raise ValueError("All modality dimensions must be equal for fusion ablations.")
+        if not 0.0 <= dropout <= 1.0:
+            raise ValueError("dropout must be between 0 and 1.")
 
-        total_dim = d_smiles + d_graph + d_point_output
-
-        self.mlp = nn.Sequential(
-            nn.Linear(total_dim, total_dim // 2),
-            nn.GELU(),
-            nn.Dropout(dropout),
-            nn.Linear(total_dim // 2, d_output)
-        )
-
-    def forward(self, smiles_emb, graph_emb, point_cloud_emb):
-        if smiles_emb is not None:
-            batch_size, device = smiles_emb.size(0), smiles_emb.device
-        elif graph_emb is not None:
-            batch_size, device = graph_emb.size(0), graph_emb.device
-        else:
-            batch_size, device = point_cloud_emb.size(0), point_cloud_emb.device
-
-        if smiles_emb is None:
-            smiles_emb = torch.zeros(batch_size, self.d_smiles, device=device)
-        if graph_emb is None:
-            graph_emb = torch.zeros(batch_size, self.d_graph, device=device)
-        if point_cloud_emb is None:
-            point_cloud_emb = torch.zeros(batch_size, self.d_point, device=device)
-
-        combined = torch.cat([smiles_emb, graph_emb, point_cloud_emb], dim=-1)
-        return self.mlp(combined)
-
-
-class WeightedSumFusion(nn.Module):
-    """
-    Fusion of multimodal fingerprints via linear summation
-    """
-    def __init__(self, d_smiles, d_graph, d_point_output, d_output, dropout=0.1):
-        super(WeightedSumFusion, self).__init__()
-
-        common_dim = d_smiles
-        assert d_smiles == d_graph == d_point_output, "Dimensions of modalities must be equal."
-
-        self.common_dim = common_dim
-
-        self.norm_s = nn.LayerNorm(d_smiles)
-        self.norm_g = nn.LayerNorm(d_graph)
-        self.norm_p = nn.LayerNorm(d_point_output)
-
-        self.smiles_fc = nn.Linear(d_smiles, common_dim)
-        self.graph_fc = nn.Linear(d_graph, common_dim)
-        self.point_fc = nn.Linear(d_point_output, common_dim)
-
-        self.alpha_logits = nn.Parameter(torch.zeros(3))  # Define a learnable scaling factor for each modality.
-
-        self.fc = nn.Sequential(
-            nn.LayerNorm(common_dim),
-            nn.Linear(common_dim, common_dim // 2),
-            nn.GELU(),
-            nn.Dropout(dropout),
-            nn.Linear(common_dim // 2, d_output)
-        )
-
-        self.weights = None
-
-    def forward(self, smiles_emb, graph_emb, point_cloud_emb, return_weights=False):
-
-        if smiles_emb is not None:
-            batch_size = smiles_emb.size(0)
-            device = smiles_emb.device
-        elif graph_emb is not None:
-            batch_size = graph_emb.size(0)
-            device = graph_emb.device
-        elif point_cloud_emb is not None:
-            batch_size = point_cloud_emb.size(0)
-            device = point_cloud_emb.device
-        else:
-            raise ValueError("Provide at least one modality.")
-
-        zero = torch.zeros(batch_size, self.common_dim, device=device)
-
-        modality_mask = torch.tensor([
-            smiles_emb is not None,
-            graph_emb is not None,
-            point_cloud_emb is not None
-        ], dtype=torch.bool, device=device)
-
-        if smiles_emb is not None:
-            trans_smiles = self.smiles_fc(self.norm_s(smiles_emb))
-        else:
-            trans_smiles = zero
-
-        if graph_emb is not None:
-            trans_graph = self.graph_fc(self.norm_g(graph_emb))
-        else:
-            trans_graph = zero
-
-        if point_cloud_emb is not None:
-            trans_point = self.point_fc(self.norm_p(point_cloud_emb))
-        else:
-            trans_point = zero
-
-        logits = self.alpha_logits.masked_fill(~modality_mask, -1e9)
-        weights = torch.softmax(logits, dim=0)
-
-        self.weights = weights.detach()
-
-        fused_emb = (
-                weights[0] * trans_smiles +
-                weights[1] * trans_graph +
-                weights[2] * trans_point
-        )
-
-        output = self.fc(fused_emb)
-
-        if return_weights:
-            return output, weights
-
-        return output
-
-
-class GatedFusion(nn.Module):
-    """
-    Fusion of multimodal fingerprints via gating mechanism
-    """
-    def __init__(self, d_smiles, d_graph, d_point_output, d_output, dropout=0.1):
-        super(GatedFusion, self).__init__()
-
-        # Ensure all modality dimensions are equal
-        assert d_smiles == d_graph == d_point_output, "Dimensions of modalities must be equal."
         self.d_model = d_smiles
-
-        # LayerNorm for cross-attention and the global residual connection, and the dropout
         self.norm_S = nn.LayerNorm(self.d_model)
         self.norm_G = nn.LayerNorm(self.d_model)
         self.norm_P = nn.LayerNorm(self.d_model)
         self.norm_final = nn.LayerNorm(self.d_model)
-        self.dropout = nn.Dropout(dropout)
-
-        # ----- linear projection layers for pairwise interaction -----
-        self.proj_S = nn.Linear(self.d_model, self.d_model)
-        self.proj_G = nn.Linear(self.d_model, self.d_model)
-        self.proj_P = nn.Linear(self.d_model, self.d_model)
-
-        # ----- Gating Network -----
-        # Input: concatenation of three enhanced features -> (batch, 6*d_model)
-        # Output: logits of three gating vectors -> (batch, 6*d_model)
-        self.gate_mlp = nn.Sequential(
-            nn.Linear(6 * self.d_model, 3 * self.d_model),
-            nn.GELU(),
-            nn.Dropout(dropout),
-            nn.Linear(3 * self.d_model, 3 * self.d_model)
-        )
-
-        # ----- Final prediction head -----
         self.fc = nn.Sequential(
-            nn.Linear(self.d_model, self.d_model // 2),
+            nn.Linear(self.d_model, max(1, self.d_model // 2)),
             nn.GELU(),
             nn.Dropout(dropout),
-            nn.Linear(self.d_model // 2, d_output)
+            nn.Linear(max(1, self.d_model // 2), d_output)
         )
 
-        # Save gating weights for interpretability analysis (filled in during forward pass)
-        self.gates = None  # tuple (g_S, g_G, g_P), each of shape: (batch, d_model)
+        # Diagnostics only; never keep a training computation graph here.
+        # The existing gate-export script checks .gates on every fusion type.
+        self.gates = None
+        self.weights = None
 
-    def forward(self, smiles_emb, graph_emb, point_cloud_emb, return_gates=False):
-        """
-            return_gates: Whether to return gated vectors
-        Returns:
-            output: (batch, d_output)
-            gates (optional): tuple (g_S, g_G, g_P)
-        """
-        if smiles_emb is not None:
-            batch_size, device = smiles_emb.size(0), smiles_emb.device
-        elif graph_emb is not None:
-            batch_size, device = graph_emb.size(0), graph_emb.device
-        elif point_cloud_emb is not None:
-            batch_size, device = point_cloud_emb.size(0), point_cloud_emb.device
-        else:
-            raise ValueError("Provide at least one feature of a modality")
+    @staticmethod
+    def _validate_hidden_dim(hidden_dim):
+        if (isinstance(hidden_dim, bool) or not isinstance(hidden_dim, int)
+                or hidden_dim <= 0):
+            raise ValueError("hidden_dim must be a positive integer.")
 
-        # Set missing modalities directly to zero and project each modality to interaction space
-        if smiles_emb is not None:
-            h_s = self.norm_S(smiles_emb)
-            s_proj = self.proj_S(h_s)
-        else:
-            h_s = torch.zeros(batch_size, self.d_model, device=device)
-            s_proj = torch.zeros_like(h_s)
+    def _prepare_features(self, smiles_emb, graph_emb, point_cloud_emb):
+        features = (smiles_emb, graph_emb, point_cloud_emb)
+        names = ("SMILES", "Graph", "PointCloud")
+        reference = next((feature for feature in features if feature is not None), None)
+        if reference is None:
+            raise ValueError("Provide at least one modality.")
 
-        if graph_emb is not None:
-            h_g = self.norm_G(graph_emb)
-            g_proj = self.proj_G(h_g)
-        else:
-            h_g = torch.zeros(batch_size, self.d_model, device=device)
-            g_proj = torch.zeros_like(h_g)
+        for name, feature in zip(names, features):
+            if feature is None:
+                continue
+            if not isinstance(feature, torch.Tensor):
+                raise TypeError(f"{name} features must be a torch.Tensor or None.")
+            if feature.ndim != 2 or feature.size(-1) != self.d_model:
+                raise ValueError(
+                    f"{name} features must have shape (batch, {self.d_model}); "
+                    f"received {tuple(feature.shape)}."
+                )
+            if not feature.is_floating_point():
+                raise TypeError(f"{name} features must use a floating-point dtype.")
+            if feature.size(0) != reference.size(0):
+                raise ValueError("All modality tensors must have the same batch size.")
+            if feature.device != reference.device or feature.dtype != reference.dtype:
+                raise ValueError("All modality tensors must have the same device and dtype.")
 
-        if point_cloud_emb is not None:
-            h_p = self.norm_P(point_cloud_emb)
-            p_proj = self.proj_P(h_p)
-        else:
-            h_p = torch.zeros(batch_size, self.d_model, device=device)
-            p_proj = torch.zeros_like(h_p)
-
-        # Hadamard product interactions
-        h_sg = s_proj * g_proj   # SMILES-Graph
-        h_gp = g_proj * p_proj   # Graph-PointCloud
-        h_ps = p_proj * s_proj   # PointCloud-SMILES
-
-        # ---------- Feature‑Level Gate Generation ----------
-        # Concatenate original + interactions
-        concat_feats = torch.cat([h_s, h_g, h_p, h_sg, h_gp, h_ps], dim=-1)  # 6*d_model
-        gate_logits = self.gate_mlp(concat_feats).view(batch_size, 3, self.d_model)  # (batch, 3, d_model)
+        if reference.size(0) == 0:
+            raise ValueError("Empty batches are not supported.")
 
         modality_mask = torch.tensor(
-            [
-                smiles_emb is not None,
-                graph_emb is not None,
-                point_cloud_emb is not None,
-            ],
+            [feature is not None for feature in features],
             dtype=torch.bool,
-            device=device,
-        ).view(1, 3, 1)
+            device=reference.device
+        )
+        norms = (self.norm_S, self.norm_G, self.norm_P)
+        normalized = [
+            norm(feature) if feature is not None else reference.new_zeros(reference.shape)
+            for norm, feature in zip(norms, features)
+        ]
+        return normalized, modality_mask
 
-        gate_logits = gate_logits.masked_fill(
-            ~modality_mask,
-            torch.finfo(gate_logits.dtype).min,
+    def _predict(self, fused_emb):
+        return self.fc(self.norm_final(fused_emb))
+
+
+class ConcatFusion(FusionBase):
+    """Concatenate normalized branches, then map 3*d_model back to d_model."""
+    def __init__(self, d_smiles, d_graph, d_point_output, d_output,
+                 dropout=0.1, hidden_dim=None):
+        super().__init__(d_smiles, d_graph, d_point_output, d_output, dropout)
+        hidden_dim = max(1, 3 * self.d_model // 2) if hidden_dim is None else hidden_dim
+        self._validate_hidden_dim(hidden_dim)
+        self.hidden_dim = hidden_dim
+        self.fusion_mlp = nn.Sequential(
+            nn.Linear(3 * self.d_model, hidden_dim),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_dim, self.d_model)
         )
 
-        gates = torch.softmax(gate_logits, dim=1)  # Softmax over the modality dimension
-        gate_s, gate_g, gate_p = gates[:, 0, :], gates[:, 1, :], gates[:, 2, :]
+    def forward(self, smiles_emb, graph_emb, point_cloud_emb):
+        features, _ = self._prepare_features(smiles_emb, graph_emb, point_cloud_emb)
+        fused_emb = self.fusion_mlp(torch.cat(features, dim=-1))
+        return self._predict(fused_emb)
 
+
+class MeanFusion(FusionBase):
+    """Uniform average over the available, normalized modality features."""
+    def forward(self, smiles_emb, graph_emb, point_cloud_emb, return_weights=False):
+        features, modality_mask = self._prepare_features(
+            smiles_emb, graph_emb, point_cloud_emb
+        )
+        stacked = torch.stack(features, dim=1)  # (batch, 3, d_model)
+        weights = modality_mask.to(dtype=stacked.dtype)
+        weights = weights / weights.sum()
+        self.weights = weights.detach()
+        fused_emb = (stacked * weights.view(1, 3, 1)).sum(dim=1)
+        output = self._predict(fused_emb)
+        if return_weights:
+            return output, weights
+        return output
+
+
+class WeightedSumFusion(FusionBase):
+    """
+    Global learned scalar weights, shared by all molecules.
+
+    Zero logits initialize this module to MeanFusion when their common
+    normalization layers and prediction head have identical parameters.
+    There are no private branch projections in this controlled variant.
+    """
+    def __init__(self, d_smiles, d_graph, d_point_output, d_output, dropout=0.1):
+        super().__init__(d_smiles, d_graph, d_point_output, d_output, dropout)
+        self.alpha_logits = nn.Parameter(torch.zeros(3))
+
+    def forward(self, smiles_emb, graph_emb, point_cloud_emb, return_weights=False):
+        features, modality_mask = self._prepare_features(
+            smiles_emb, graph_emb, point_cloud_emb
+        )
+        stacked = torch.stack(features, dim=1)
+        logits = self.alpha_logits.masked_fill(
+            ~modality_mask, torch.finfo(self.alpha_logits.dtype).min
+        )
+        weights = torch.softmax(logits, dim=0)
+        self.weights = weights.detach()
+        fused_emb = (stacked * weights.view(1, 3, 1)).sum(dim=1)
+        output = self._predict(fused_emb)
+        if return_weights:
+            return output, weights
+        return output
+
+
+class AttentionFusion(FusionBase):
+    """
+    Self-attention over three modality tokens, followed by masked mean pooling.
+
+    Attention maps have shape (batch, num_heads, 3, 3). They are diagnostics,
+    not the channel-wise routing weights returned by GatedFusion.
+    """
+    def __init__(self, d_smiles, d_graph, d_point_output, d_output,
+                 dropout=0.1, num_heads=4):
+        super().__init__(d_smiles, d_graph, d_point_output, d_output, dropout)
+        if (isinstance(num_heads, bool) or not isinstance(num_heads, int)
+                or num_heads <= 0 or self.d_model % num_heads != 0):
+            raise ValueError("num_heads must be positive and divide d_model.")
+        self.num_heads = num_heads
+        self.attention = nn.MultiheadAttention(
+            embed_dim=self.d_model,
+            num_heads=num_heads,
+            dropout=dropout,
+            batch_first=True
+        )
+        self.attention_dropout = nn.Dropout(dropout)
+        self.attention_weights = None
+
+    def forward(self, smiles_emb, graph_emb, point_cloud_emb, return_weights=False):
+        features, modality_mask = self._prepare_features(
+            smiles_emb, graph_emb, point_cloud_emb
+        )
+        tokens = torch.stack(features, dim=1)  # (batch, 3, d_model)
+        key_padding_mask = (~modality_mask).unsqueeze(0).expand(tokens.size(0), -1)
+        attended, attention_weights = self.attention(
+            query=tokens,
+            key=tokens,
+            value=tokens,
+            key_padding_mask=key_padding_mask,
+            need_weights=return_weights,
+            average_attn_weights=False
+        )
+        updated = tokens + self.attention_dropout(attended)
+        # Missing queries can still attend to valid keys; exclude them as well.
+        updated = updated.masked_fill(~modality_mask.view(1, 3, 1), 0.0)
+        fused_emb = updated.sum(dim=1) / modality_mask.sum().to(dtype=updated.dtype)
+        output = self._predict(fused_emb)
+
+        self.attention_weights = None
+        if return_weights:
+            attention_weights = attention_weights.masked_fill(
+                ~modality_mask.view(1, 1, 3, 1), 0.0
+            )
+            self.attention_weights = attention_weights.detach()
+            return output, attention_weights
+        return output
+
+
+class GatedFusion(FusionBase):
+    """
+    Feature-level gating with optional explicit pairwise products.
+
+    With pairwise interactions and the default hidden width, this preserves
+    the original GatedFusion computation and state_dict parameter names.
+    """
+    def __init__(self, d_smiles, d_graph, d_point_output, d_output,
+                 dropout=0.1, hidden_dim=None, use_pairwise_interactions=True):
+        super().__init__(d_smiles, d_graph, d_point_output, d_output, dropout)
+        if not isinstance(use_pairwise_interactions, bool):
+            raise TypeError("use_pairwise_interactions must be bool.")
+        self.use_pairwise_interactions = use_pairwise_interactions
+        hidden_dim = 3 * self.d_model if hidden_dim is None else hidden_dim
+        self._validate_hidden_dim(hidden_dim)
+        self.hidden_dim = hidden_dim
+
+        if self.use_pairwise_interactions:
+            self.proj_S = nn.Linear(self.d_model, self.d_model)
+            self.proj_G = nn.Linear(self.d_model, self.d_model)
+            self.proj_P = nn.Linear(self.d_model, self.d_model)
+
+        input_dim = (6 if self.use_pairwise_interactions else 3) * self.d_model
+        self.gate_mlp = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_dim, 3 * self.d_model)
+        )
+
+    def forward(self, smiles_emb, graph_emb, point_cloud_emb, return_gates=False):
+        features, modality_mask = self._prepare_features(
+            smiles_emb, graph_emb, point_cloud_emb
+        )
+        h_s, h_g, h_p = features
+        gate_features = list(features)
+
+        if self.use_pairwise_interactions:
+            # Mask after projection so a missing branch contributes no bias.
+            s_proj = self.proj_S(h_s).masked_fill(~modality_mask[0], 0.0)
+            g_proj = self.proj_G(h_g).masked_fill(~modality_mask[1], 0.0)
+            p_proj = self.proj_P(h_p).masked_fill(~modality_mask[2], 0.0)
+            h_sg = s_proj * g_proj
+            h_gp = g_proj * p_proj
+            h_ps = p_proj * s_proj
+            gate_features.extend([h_sg, h_gp, h_ps])
+
+        concat_feats = torch.cat(gate_features, dim=-1)
+        gate_logits = self.gate_mlp(concat_feats).view(h_s.size(0), 3, self.d_model)
+        gate_logits = gate_logits.masked_fill(
+            ~modality_mask.view(1, 3, 1), torch.finfo(gate_logits.dtype).min
+        )
+        gates = torch.softmax(gate_logits, dim=1)
+        gate_s, gate_g, gate_p = gates.unbind(dim=1)
         self.gates = (gate_s.detach(), gate_g.detach(), gate_p.detach())
 
-        # ---------- Weighted Fusion ----------
-        h_final = self.norm_final(gate_s * h_s + gate_g * h_g + gate_p * h_p)
-
-        # Output prediction
-        output = self.fc(h_final)
-
+        fused_emb = gate_s * h_s + gate_g * h_g + gate_p * h_p
+        output = self._predict(fused_emb)
         if return_gates:
             return output, (gate_s, gate_g, gate_p)
         return output
 
     def get_modality_importance(self):
-        """
-        Call forward() first; returns a scalar overall modality importance for interpretability analysis
-        """
-        gate_s, gate_g, gate_p = self.gates
-        imp_s = gate_s.mean(dim=-1)  # (batch,)
-        imp_g = gate_g.mean(dim=-1)
-        imp_p = gate_p.mean(dim=-1)
-        return imp_s, imp_g, imp_p
+        """Mean routing weight per modality and sample, not causal importance."""
+        if self.gates is None:
+            raise RuntimeError("Call forward() before reading modality importance.")
+        return tuple(gate.mean(dim=-1) for gate in self.gates)
+
+
+class GatedFusionWithoutInteractions(GatedFusion):
+    """
+    Feature-level gating using only the three normalized branch features.
+
+    No pairwise projection layers are registered. The MLP can still learn
+    cross-modal dependencies; only explicit pairwise products are removed.
+    """
+    def __init__(self, d_smiles, d_graph, d_point_output, d_output,
+                 dropout=0.1, hidden_dim=None):
+        super().__init__(
+            d_smiles, d_graph, d_point_output, d_output,
+            dropout=dropout,
+            hidden_dim=hidden_dim,
+            use_pairwise_interactions=False
+        )
+
+
+FUSION_CLASSES = {
+    "concat": ConcatFusion,
+    "mean": MeanFusion,
+    "weighted": WeightedSumFusion,
+    "attention": AttentionFusion,
+    "gate_no_interaction": GatedFusionWithoutInteractions,
+    "gate": GatedFusion
+}
 
 
 class MultimodalModel(nn.Module):
     """
-    Multimodal molecular representation learning mode
+    Multimodal molecular representation learning model.
+
+    fusion_type: concat (Concat), mean (Avg), weighted (SW), attention (Attn),
+                 gate_no_interaction (FLG), or gate (IA-FLG).
+    Fusion is bypassed when only one modality is active. The three encoder
+    output dimensions must be equal for the controlled fusion comparison.
     """
     def __init__(self, vocab_size, smiles_length, d_smiles, smiles_num_heads, smiles_num_layers, cnn_kernels,  # SMILES
                  d_node, d_edge, d_hidden, graph_num_layers,  # Graph
                  d_point_input, d_point_cloud, d_point_output,  # Point cloud
                  d_output,
                  use_smiles, use_graph, use_point_cloud,
-                 dropout=0.1):
+                 dropout=0.1, fusion_type="gate"):
 
         super(MultimodalModel, self).__init__()
 
@@ -726,6 +773,10 @@ class MultimodalModel(nn.Module):
         self.use_point_cloud = use_point_cloud
         self.num_modalities = sum([use_smiles, use_graph, use_point_cloud])
         assert self.num_modalities >= 1, "At least one modality must be activated."
+
+        if not isinstance(fusion_type, str) or fusion_type not in FUSION_CLASSES:
+            raise ValueError(f"fusion_type must be one of {tuple(FUSION_CLASSES)}.")
+        self.fusion_type = fusion_type if self.num_modalities > 1 else None
 
         # SMILES Modality
         if self.use_smiles:
@@ -763,9 +814,10 @@ class MultimodalModel(nn.Module):
             )
             self.fusion_model = None
         else:
-            # Fusion
-            # Publication default: the interaction-augmented feature-level gate.
-            self.fusion_model = GatedFusion(d_smiles, d_hidden, d_point_output, d_output)
+            # Select the fusion strategy; all variants share normalization and the head.
+            self.fusion_model = FUSION_CLASSES[fusion_type](
+                d_smiles, d_hidden, d_point_output, d_output, dropout=dropout
+            )
             self.output_head = None
 
     def forward(self, smiles, graph, point_cloud, point_cloud_lengths, return_embeddings=False):

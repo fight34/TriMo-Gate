@@ -3,19 +3,23 @@
 import ast
 import csv
 import itertools
+import json
+import os
 from pathlib import Path
 import re
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import torch
 from torch_geometric.data import Batch, Data
 
 from data_config import validate_xyz_map
-from Model_1 import GatedFusion, MultimodalModel
+from Model import FUSION_CLASSES, GatedFusion, MultimodalModel
+import run as benchmark_entry
 
 ROOT = Path(__file__).resolve().parent
 torch.set_num_threads(1)
@@ -35,6 +39,53 @@ class ReleaseChecks(unittest.TestCase):
     def test_all_python_sources_compile(self):
         for path in ROOT.glob("*.py"):
             compile(path.read_text(encoding="utf-8-sig"), path.name, "exec")
+
+    def test_cli_fusion_selection_and_run_isolation(self):
+        with tempfile.TemporaryDirectory(prefix="benchmark-fusion-cli-") as directory:
+            root = Path(directory)
+            table, mapping = root / "table.csv", root / "mapping.csv"
+            table.write_text("fixture", encoding="utf-8")
+            mapping.write_text("fixture", encoding="utf-8")
+            base = ["run.py", "--dataset", "qm9", "--table", str(table),
+                    "--smiles-column", "smiles", "--target", "mu", "--unit", "Debye",
+                    "--xyz-dir", str(root), "--xyz-map", str(mapping),
+                    "--output", str(root / "results")]
+            cases = [(kind, [], "random_3_seeds.py") for kind in FUSION_CLASSES]
+            cases += [("gate", ["--cmcr"], "random_3_seeds_cmcr_with_gate_export.py"),
+                      ("mean", ["--bayes-opt"], "Train_and_evaluation.py")]
+            result_dirs = []
+            for kind, extra, script in cases:
+                with self.subTest(fusion=kind, extra=extra), \
+                        patch.object(sys, "argv", base + ["--fusion", kind] + extra), \
+                        patch.dict(os.environ), \
+                        patch("data_config.load_inputs", return_value=([], None, None, None)), \
+                        patch.object(benchmark_entry.runpy, "run_path") as train:
+                    benchmark_entry.main()
+                    runtime = json.loads(os.environ["TRIMOGATE_BENCHMARK_CONFIG"])
+                    result_dir = Path(runtime["result_dir"])
+                    saved = json.loads((result_dir / "run_config.json").read_text())
+                    self.assertEqual(runtime["fusion"], kind)
+                    self.assertEqual(saved["fusion"], kind)
+                    self.assertEqual(saved["seeds"], [42, 44, 46])
+                    self.assertEqual(Path(train.call_args.args[0]).name, script)
+                    result_dirs.append(result_dir)
+            self.assertEqual(len(set(result_dirs)), len(cases))
+            self.assertIn(root / "results" / "RandomSplit_3_Seeds_1D+2D+3D_Results", result_dirs)
+
+    def test_cli_rejects_unsupported_fusion_combinations_before_loading_data(self):
+        base = [sys.executable, "-B", str(ROOT / "run.py"), "--dataset", "qm9",
+                "--table", "missing.csv", "--smiles-column", "smiles", "--target", "mu",
+                "--unit", "Debye", "--xyz-dir", "missing", "--xyz-map", "missing.csv",
+                "--output", "unused"]
+        cases = [(["--fusion", "unknown"], "invalid choice"),
+                 (["--cmcr", "--fusion", "mean"], "requires --fusion gate"),
+                 (["--modalities", "S", "--fusion", "concat"], "bypass fusion")]
+        for extra, expected in cases:
+            with self.subTest(extra=extra):
+                result = subprocess.run(base + extra, capture_output=True, text=True,
+                                        encoding="utf-8", errors="replace", timeout=30)
+                self.assertEqual(result.returncode, 2)
+                self.assertIn(expected, result.stderr)
 
     def test_full_cli_input_checks_for_both_datasets(self):
         from rdkit import Chem

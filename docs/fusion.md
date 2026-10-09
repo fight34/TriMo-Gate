@@ -15,6 +15,13 @@ and compared across fusion methods within each seed. Fusion modules retain
 their natural parameter counts; this is not a parameter-matched experiment.
 No CMCR or hyperparameter search is run in these scripts.
 
+The separate `benchmark/Model.py` also supports these six choices through
+`benchmark/run.py --fusion`, with `gate` remaining the default; see the
+[benchmark guide](benchmark.md#fusion-choices). It retains the original benchmark
+encoders, including five SMILES CNN kernels `[1, 2, 3, 4, 5]`, whereas this archived
+`fusion/Model.py` uses six `[1, 2, 3, 4, 5, 6]`. The new benchmark options use the
+benchmark protocol and do not constitute reruns of the archived results below.
+
 The two trainers/loaders/summarizers remain separate because QM9 uses a fixed
 random split and QM8 uses the audited conservative structural-group split.
 Their seeds are 42, 2025, and 3407; split seed is 20260927. The protocol uses
